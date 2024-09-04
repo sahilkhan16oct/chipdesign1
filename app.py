@@ -4,20 +4,20 @@ import json
 import os
 from jsonToGds import convert_json_to_gds 
 from gdsToJson import convert_gds_to_json
-def create_app():
-    app = Flask(__name__)
-    CORS(app)  # Enable CORS for your frontend origin
 
-    app.secret_key = 'your_secret_key'  # Needed for session management
+app = Flask(__name__)
+CORS(app)  # Enable CORS for your frontend origin
 
-    # Dummy user data (usually fetched from a database)
-    users = {
+app.secret_key = 'your_secret_key'  # Needed for session management
+
+# Dummy user data (usually fetched from a database)
+users = {
         "admin1": "12345",
         "admin2": "123456789"
     }
 
-    @app.route('/login', methods=['POST'])
-    def login():
+@app.route('/login', methods=['POST'])
+def login():
         data = request.json
         username = data.get('username')
         password = data.get('password')
@@ -28,25 +28,25 @@ def create_app():
         else:
             return jsonify({"message": "Invalid credentials", "authenticated": False}), 401
 
-    @app.route('/logout', methods=['POST'])
-    def logout():
+@app.route('/logout', methods=['POST'])
+def logout():
         session.pop('user', None)
         return jsonify({"message": "Logged out", "authenticated": False})
 
-    @app.route('/check-auth', methods=['GET'])
-    def check_auth():
-        if 'user' in session:
-            return jsonify({"authenticated": True})
-        return jsonify({"authenticated": False}), 401
+@app.route('/check-auth', methods=['GET'])
+def check_auth():
+    if 'user' in session:
+        return jsonify({"authenticated": True})
+    return jsonify({"authenticated": False}), 401
 
 
 
 
     # Path to the layer map file
-    LAYERS_FILE_PATH = 'layermap.json'
+LAYERS_FILE_PATH = 'layermap.json'
 
     # Load layers from the JSON file
-    def load_layers():
+def load_layers():
         if os.path.exists(LAYERS_FILE_PATH):
             with open(LAYERS_FILE_PATH, 'r') as file:
                 return json.load(file)
@@ -54,26 +54,26 @@ def create_app():
             return {"layers": []}
 
     # Save layers to the JSON file
-    def save_layers(data):
+def save_layers(data):
         with open(LAYERS_FILE_PATH, 'w') as file:
             json.dump(data, file, indent=4)
 
     # Endpoint to get all layers
-    @app.route('/layers', methods=['GET'])
-    def get_layers():
+@app.route('/layers', methods=['GET'])
+def get_layers():
         layers = load_layers()
         return jsonify(layers)
 
     # Endpoint to save all layers
-    @app.route('/layers', methods=['POST'])
-    def save_all_layers():
+@app.route('/layers', methods=['POST'])
+def save_all_layers():
         data = request.json
         save_layers(data)
         return jsonify({"message": "Layers saved successfully."})
 
     # Endpoint to update a specific layer
-    @app.route('/layers/update', methods=['PUT'])
-    def update_layer():
+@app.route('/layers/update', methods=['PUT'])
+def update_layer():
         data = request.json
         layers = load_layers()
 
@@ -86,8 +86,8 @@ def create_app():
         return jsonify({"message": "Layer not found."}), 404
 
     # Endpoint to delete a specific layer
-    @app.route('/layers/delete', methods=['DELETE'])
-    def delete_layer():
+@app.route('/layers/delete', methods=['DELETE'])
+def delete_layer():
         data = request.json
         layers = load_layers()
 
@@ -100,8 +100,8 @@ def create_app():
             return jsonify({"message": "Layer not found."}), 404
 
     # Endpoint to upload and overwrite the layer map
-    @app.route('/upload-layermap', methods=['POST'])
-    def upload_layermap():
+@app.route('/upload-layermap', methods=['POST'])
+def upload_layermap():
         if 'file' not in request.files:
             return jsonify({"message": "No file part"}), 400
         
@@ -113,8 +113,8 @@ def create_app():
         if file:
             file.save(LAYERS_FILE_PATH)
             return jsonify({"message": "File uploaded and layers updated successfully."}), 200
-    @app.route('/convert-and-save-gds', methods=['POST'])
-    def convert_to_gds():
+@app.route('/convert-and-save-gds', methods=['POST'])
+def convert_to_gds():
         data = request.json
         json_content = data.get('json_content', '')
         project_name = data.get('project_name', '')
@@ -141,8 +141,8 @@ def create_app():
         except Exception as e:
             return jsonify({"message": f"Conversion failed: {str(e)}"}), 500
 
-    @app.route('/convert-gds-to-json', methods=['POST'])
-    def convert_gds_to_json_route():
+@app.route('/convert-gds-to-json', methods=['POST'])
+def convert_gds_to_json_route():
         try:
             # Get the JSON data from the request
             data = request.json
@@ -168,5 +168,4 @@ def create_app():
         
         except Exception as e:
             return jsonify({'message': str(e)}), 500
-    return app
 
