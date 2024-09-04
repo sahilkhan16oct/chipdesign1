@@ -1,0 +1,38 @@
+{
+  "layout_data": {
+    "units": {
+      "user_size": 0.0005,
+      "db_size": 5e-10
+    },
+    "cells": [
+      {
+        "cell_name": "wertyu",
+        "properties": [
+          {
+            "type": "Rectangle",
+            "layer_number": 1,
+            "datatype_number": 0,
+            "coordinates": [
+              [
+                -0.266,
+                -0.10475
+              ],
+              [
+                -0.137,
+                -0.10475
+              ],
+              [
+                -0.137,
+                -0.023249999999999993
+              ],
+              [
+                -0.266,
+                -0.023249999999999993
+              ]
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

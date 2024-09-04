@@ -1,0 +1,111 @@
+{
+  "layout_data": {
+    "units": {
+      "user_size": 0.0005,
+      "db_size": 5e-10
+    },
+    "cells": [
+      {
+        "cell_name": "g12",
+        "properties": [
+          {
+            "type": "Rectangle",
+            "layer_number": 3,
+            "datatype_number": 0,
+            "coordinates": [
+              [
+                0.0205,
+                0.06975
+              ],
+              [
+                0.075,
+                0.06975
+              ],
+              [
+                0.075,
+                0.12875
+              ],
+              [
+                0.0205,
+                0.12875
+              ]
+            ]
+          },
+          {
+            "type": "Instance",
+            "origin": [
+              [
+                -0.2655,
+                0.09575
+              ]
+            ],
+            "bounding_box": [
+              [
+                -0.2655,
+                0.09525
+              ],
+              [
+                -0.08750000000000001,
+                0.16625
+              ]
+            ],
+            "name": "fff",
+            "rotation": 0,
+            "mirror_x": false
+          }
+        ]
+      },
+      {
+        "cell_name": "fff",
+        "properties": [
+          {
+            "type": "Rectangle",
+            "layer_number": 1,
+            "datatype_number": 0,
+            "coordinates": [
+              [
+                -0.2655,
+                0.09575
+              ],
+              [
+                -0.1895,
+                0.09575
+              ],
+              [
+                -0.1895,
+                0.14775
+              ],
+              [
+                -0.2655,
+                0.14775
+              ]
+            ]
+          },
+          {
+            "type": "Rectangle",
+            "layer_number": 2,
+            "datatype_number": 0,
+            "coordinates": [
+              [
+                -0.17250000000000001,
+                0.09525
+              ],
+              [
+                -0.08750000000000001,
+                0.09525
+              ],
+              [
+                -0.08750000000000001,
+                0.16625
+              ],
+              [
+                -0.17250000000000001,
+                0.16625
+              ]
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
