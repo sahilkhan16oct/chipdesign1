@@ -42,8 +42,8 @@ def check_auth():
 
 
 
-    # Path to the layer map file
-LAYERS_FILE_PATH = 'layermap.json'
+# Path to the layer map file
+LAYERS_FILE_PATH = '/home/chipdesign1/layermap.json'
 
     # Load layers from the JSON file
 def load_layers():
