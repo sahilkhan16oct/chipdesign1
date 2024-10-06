@@ -44,7 +44,7 @@ def cell_to_json(cell: gdstk.Cell, covered_cells: set, cells_json: list) -> dict
     for poly in cell.polygons:
         properties.append(
             {
-                "type": "Rectangle",
+                "type": "Polygon",
                 "layer_number": poly.layer,
                 "datatype_number": poly.datatype,
                 "coordinates": poly.points.tolist(),
