@@ -1,12 +1,18 @@
-from flask import Flask, jsonify, request, session
+from flask import Flask, jsonify, request, session , send_file 
 from flask_cors import CORS  # Import CORS from flask_cors
 import json
 import os
 from jsonToGds import convert_json_to_gds 
 from gdsToJson import convert_gds_to_json
+import subprocess
+import platform
+from io import BytesIO
+import tempfile
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for your frontend origin
+
+system = platform.system()
 
 app.secret_key = 'your_secret_key'  # Needed for session management
 
@@ -35,15 +41,12 @@ def logout():
 
 @app.route('/check-auth', methods=['GET'])
 def check_auth():
-    if 'user' in session:
-        return jsonify({"authenticated": True})
-    return jsonify({"authenticated": False}), 401
+        if 'user' in session:
+            return jsonify({"authenticated": True})
+        return jsonify({"authenticated": False}), 401
 
-
-
-
-# Correct path to the layer map file
-LAYERS_FILE_PATH = '/home/chipdesign1/chipdesign1/layermap.json'
+# Path to the layer map file
+LAYERS_FILE_PATH = 'layermap.json'
 
     # Load layers from the JSON file
 def load_layers():
@@ -113,59 +116,78 @@ def upload_layermap():
         if file:
             file.save(LAYERS_FILE_PATH)
             return jsonify({"message": "File uploaded and layers updated successfully."}), 200
+
+# Define the BASE_DIR
+if system == "Windows":
+        BASE_DIR = os.path.join(os.path.expanduser("~"), "Downloads")
+elif system == "Darwin":  # macOS
+        BASE_DIR = os.path.join(os.path.expanduser("~"), "Documents")
+else:  # Linux and other systems
+        BASE_DIR = os.path.join(os.path.expanduser("~"), "Documents")
+
 @app.route('/convert-and-save-gds', methods=['POST'])
-def convert_to_gds():
+def convert_and_save_gds():
         data = request.json
         json_content = data.get('json_content', '')
         project_name = data.get('project_name', '')
-        print(json_content)
-        if not json_content or not project_name:
-            return jsonify({"message": "JSON content or project name is missing"}), 400
+        directory_name = data.get('directory_path', '')  # This is just the directory name
+
+        if not json_content or not project_name or not directory_name:
+            return jsonify({"message": "JSON content, project name, or directory path is missing"}), 400
+
+        # Build the full directory path using BASE_DIR and directory_name
+        full_directory_path = os.path.join(BASE_DIR, directory_name)
+        os.makedirs(full_directory_path, exist_ok=True)  # Create the directory if it doesn't exist
 
         # Define the path for the GDS file
-        output_dir = os.path.join(os.getcwd(), "gds_output")
-        os.makedirs(output_dir, exist_ok=True)
-        gds_filename = os.path.join(output_dir, f"{project_name}.gds")
+        gds_filename = os.path.join(full_directory_path, f"{project_name}.gds")
 
         try:
             # Save the JSON content temporarily to a file
-            temp_json_path = os.path.join(output_dir, f"{project_name}.json")
+            temp_json_path = os.path.join(full_directory_path, f"{project_name}.json")
             with open(temp_json_path, 'w') as temp_json_file:
                 temp_json_file.write(json_content)
 
             # Convert the JSON to GDS using your existing conversion logic
             convert_json_to_gds(temp_json_path, gds_filename)
 
-            return jsonify({"message": "Conversion successful", "gds_file": gds_filename}), 200
+            # After saving, serve the GDS file for download
+            return send_file(gds_filename, as_attachment=True, download_name=f"{project_name}.gds", mimetype="application/octet-stream")
 
         except Exception as e:
             return jsonify({"message": f"Conversion failed: {str(e)}"}), 500
 
+
 @app.route('/convert-gds-to-json', methods=['POST'])
 def convert_gds_to_json_route():
         try:
-            # Get the JSON data from the request
-            data = request.json
-            file_name = data.get('file_name')
-            directory_path = data.get('directory_path')
+            # Check if a file was uploaded
+            if 'file' not in request.files:
+                return jsonify({"message": "No file uploaded"}), 400
 
-            if not file_name or not directory_path:
-                return jsonify({'message': 'file_name or directory_path is missing'}), 400
+            # Get the uploaded GDS file
+            file = request.files['file']
 
-            # Ensure the directory path is absolute
-            directory_path = os.path.abspath(directory_path)
+            # Ensure the file has a valid GDS extension
+            if not file.filename.endswith('.gds'):
+                return jsonify({"message": "Invalid file type, expected a GDS file"}), 400
 
-            # Build the full file path
-            file_path = os.path.join(directory_path, file_name)
+            # Save the GDS file to a temporary location
+            with tempfile.NamedTemporaryFile(delete=False, suffix=".gds") as temp_gds_file:
+                temp_gds_file.write(file.read())
+                temp_gds_file_path = temp_gds_file.name
 
-            if not os.path.exists(file_path):
-                return jsonify({'message': 'File does not exist'}), 404
+            try:
+                # Convert the GDS file to JSON using the file path
+                json_data = convert_gds_to_json(temp_gds_file_path)  # Pass the temp file path to the function
 
-            # Open the GDS file and convert it to JSON
-            json_data = convert_gds_to_json(file_path)  # Passing file path, not the file object
+                # Return the JSON data as a response
+                return jsonify({'json_data': json_data})
 
-            return jsonify({'json_data': json_data}), 200
-        
+            finally:
+                # Clean up: delete the temporary GDS file
+                if os.path.exists(temp_gds_file_path):
+                    os.remove(temp_gds_file_path)
+
         except Exception as e:
             return jsonify({'message': str(e)}), 500
-
