@@ -21,7 +21,7 @@ def convert_json_to_gds(json_file_path, output_gds_path):
         instance[cell_ref] = []
 
         for props in cells['properties']:
-            if props['type'] == 'Polygon':
+            if props['type'] == 'Rectangle':
                 if 'coordinates' in props and len(props['coordinates']) > 0:
                     cell_ref.add(gdstk.Polygon(tuple(map(tuple, props['coordinates'])), layer=int(props['layer_number']), datatype=int(props['datatype_number'])))
                 else:
