@@ -12,5 +12,5 @@ oldest-supported-numpy==2023.12.21
 packaging==24.1
 waitress==3.0.0
 Werkzeug==3.0.3
-pymongo==4.5.0  
+pymongo==4.8.0  
 python-dotenv==1.0.0 
