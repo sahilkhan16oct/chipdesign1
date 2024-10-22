@@ -17,6 +17,10 @@ system = platform.system()
 
 app.secret_key = 'your_secret_key'  # Needed for session management
 
+@app.route('/', methods=['GET'])
+def home():
+     return jsonify({"yes:this site is working"})
+
 # authentication url
 app.register_blueprint(auth_bp, url_prefix='/auth')
 
