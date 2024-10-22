@@ -8,6 +8,7 @@ import subprocess
 import platform
 from io import BytesIO
 import tempfile
+from auth import auth_bp
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for your frontend origin
@@ -16,34 +17,8 @@ system = platform.system()
 
 app.secret_key = 'your_secret_key'  # Needed for session management
 
-# Dummy user data (usually fetched from a database)
-users = {
-        "admin1": "12345",
-        "admin2": "123456789"
-    }
-
-@app.route('/login', methods=['POST'])
-def login():
-        data = request.json
-        username = data.get('username')
-        password = data.get('password')
-
-        if username in users and users[username] == password:
-            session['user'] = username
-            return jsonify({"message": "Login successful", "authenticated": True})
-        else:
-            return jsonify({"message": "Invalid credentials", "authenticated": False}), 401
-
-@app.route('/logout', methods=['POST'])
-def logout():
-        session.pop('user', None)
-        return jsonify({"message": "Logged out", "authenticated": False})
-
-@app.route('/check-auth', methods=['GET'])
-def check_auth():
-        if 'user' in session:
-            return jsonify({"authenticated": True})
-        return jsonify({"authenticated": False}), 401
+# authentication url
+app.register_blueprint(auth_bp, url_prefix='/auth')
 
 # Path to the layer map file
 LAYERS_FILE_PATH = 'layermap.json'
@@ -191,3 +166,10 @@ def convert_gds_to_json_route():
 
         except Exception as e:
             return jsonify({'message': str(e)}), 500
+        
+
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
