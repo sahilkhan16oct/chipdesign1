@@ -115,11 +115,16 @@ def signup():
     data = request.json
     username = data.get('username')
     email = data.get('email')
+    occupation = data.get('occupation')
     password = data.get('password')
 
+    # Check if required fields are present
+    if not all([username, email, occupation, password]):
+        return jsonify({"message": "All fields (username, email, occupation, password) are required"}), 400
+
     # Check if user already exists
-    if users_collection.find_one({"username": username}):
-        return jsonify({"message": "User already exists"}), 400
+    if users_collection.find_one({"username": username}) or users_collection.find_one({"email": email}):
+        return jsonify({"message": "User with this username or email already exists"}), 400
 
     # Create new user
     hashed_password = generate_password_hash(password)
@@ -127,7 +132,15 @@ def signup():
         "username": username,
         "email": email,
         "password": hashed_password,
-        "is_verified": False  
+        "is_verified": False,
+        "occupation": occupation,
+        "subscription": {
+            "module5": False,
+            "module4": False,
+            "module3": False
+        },
+        "startDate": None,
+        "endDate": None
     })
 
     # Generate and send OTP
