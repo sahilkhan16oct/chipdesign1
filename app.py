@@ -170,6 +170,5 @@ def convert_gds_to_json_route():
 
 
 
-if __name__ == '__main__':
-    app.run(debug=True)
+
 
