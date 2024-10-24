@@ -37,22 +37,22 @@ def send_email(to_email, otp):
         server.login(os.getenv('EMAIL_ADDRESS'), os.getenv('EMAIL_PASSWORD'))
         server.sendmail(os.getenv('EMAIL_ADDRESS'), to_email, msg.as_string())
 
-otp_storage = {}  # Store OTPs temporarily
-
 @auth_bp.route('/verify-otp', methods=['POST'])
 def verify_otp():
     data = request.json
     username = data.get('username')
     otp = data.get('otp')
 
-    if username in otp_storage:
-        otp_data = otp_storage[username]
-        if otp_data['otp'] == otp:
+    print(f"Received OTP verification request for username: {username} with OTP: {otp}")
+
+    # Fetch the user from the database
+    user = users_collection.find_one({"username": username})
+    if user and 'otp' in user:
+        if user['otp'] == otp:
             # Check if OTP is still valid
-            if time.time() - otp_data['timestamp'] <= OTP_VALIDITY_DURATION:
+            if time.time() - user['otp_timestamp'] <= OTP_VALIDITY_DURATION:
                 # Update the user to set is_verified to True
-                users_collection.update_one({"username": username}, {"$set": {"is_verified": True}})
-                del otp_storage[username]  # Remove OTP after successful verification
+                users_collection.update_one({"username": username}, {"$set": {"is_verified": True}, "$unset": {"otp": "", "otp_timestamp": ""}})
                 return jsonify({"message": "OTP verified successfully", "verified": True}), 200
             else:
                 return jsonify({"message": "OTP expired", "verified": False}), 400
@@ -66,9 +66,9 @@ def resend_otp():
     username = data.get('username')
 
     user = users_collection.find_one({"username": username})
-    if user and not user['is_verified']:
+    if user and not user.get('is_verified'):
         otp = generate_otp()
-        otp_storage[username] = {'otp': otp, 'timestamp': time.time()}  # Store the OTP temporarily
+        users_collection.update_one({"username": username}, {"$set": {"otp": otp, "otp_timestamp": time.time()}})
         send_email(user['email'], otp)  # Send OTP to the user's email
         return jsonify({"message": "OTP resent"}), 200
     else:
@@ -82,7 +82,7 @@ def forgot_password():
     user = users_collection.find_one({"email": email})
     if user:
         otp = generate_otp()
-        otp_storage[email] = {'otp': otp, 'timestamp': time.time()}  # Store the OTP temporarily
+        users_collection.update_one({"email": email}, {"$set": {"otp": otp, "otp_timestamp": time.time()}})
         send_email(email, otp)  # Send OTP to the user's email
         return jsonify({"message": "OTP sent for password reset"}), 200
     else:
@@ -95,13 +95,12 @@ def reset_password():
     otp = data.get('otp')
     new_password = data.get('new_password')
 
-    if email in otp_storage:
-        otp_data = otp_storage[email]
-        if otp_data['otp'] == otp:
-            if time.time() - otp_data['timestamp'] <= OTP_VALIDITY_DURATION:
+    user = users_collection.find_one({"email": email})
+    if user and 'otp' in user:
+        if user['otp'] == otp:
+            if time.time() - user['otp_timestamp'] <= OTP_VALIDITY_DURATION:
                 hashed_password = generate_password_hash(new_password)
-                users_collection.update_one({"email": email}, {"$set": {"password": hashed_password}})
-                del otp_storage[email]  # Remove OTP after successful password reset
+                users_collection.update_one({"email": email}, {"$set": {"password": hashed_password}, "$unset": {"otp": "", "otp_timestamp": ""}})
                 return jsonify({"message": "Password reset successfully"}), 200
             else:
                 return jsonify({"message": "OTP expired", "verified": False}), 400
@@ -145,7 +144,7 @@ def signup():
 
     # Generate and send OTP
     otp = generate_otp()
-    otp_storage[username] = {'otp': otp, 'timestamp': time.time()}
+    users_collection.update_one({"username": username}, {"$set": {"otp": otp, "otp_timestamp": time.time()}})
     send_email(email, otp)
 
     return jsonify({"message": "User created successfully, OTP sent to email"}), 201
