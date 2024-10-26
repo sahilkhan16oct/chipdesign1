@@ -1,4 +1,5 @@
 import time
+from datetime import datetime, timedelta
 from flask import Blueprint, jsonify, request, session
 from pymongo import MongoClient
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -109,17 +110,30 @@ def reset_password():
     else:
         return jsonify({"message": "No OTP found for this email", "verified": False}), 400
 
+import os
+import shutil
+from flask import jsonify, request
+from werkzeug.security import generate_password_hash
+from datetime import datetime, timedelta
+
+# Assuming the layermap.json file is located in the root directory
+LAYERS_DIR = "layermap"
+BASE_LAYERS_FILE = "layermap.json"
+
+# Ensure the layermap directory exists
+if not os.path.exists(LAYERS_DIR):
+    os.makedirs(LAYERS_DIR)
+
 @auth_bp.route('/signup', methods=['POST'])
 def signup():
     data = request.json
     username = data.get('username')
     email = data.get('email')
-    occupation = data.get('occupation')
     password = data.get('password')
 
     # Check if required fields are present
-    if not all([username, email, occupation, password]):
-        return jsonify({"message": "All fields (username, email, occupation, password) are required"}), 400
+    if not all([username, email, password]):
+        return jsonify({"message": "All fields (username, email, password) are required"}), 400
 
     # Check if user already exists
     if users_collection.find_one({"username": username}) or users_collection.find_one({"email": email}):
@@ -127,19 +141,28 @@ def signup():
 
     # Create new user
     hashed_password = generate_password_hash(password)
+    start_date = datetime.now()
+    end_date = start_date + timedelta(days=28)
+
+    # Create a separate layermap file for the user
+    new_layermap_file = f"{LAYERS_DIR}/{username}_layermap.json"
+    shutil.copyfile(BASE_LAYERS_FILE, new_layermap_file)
+
+    # Insert user into the database
     users_collection.insert_one({
         "username": username,
         "email": email,
         "password": hashed_password,
         "is_verified": False,
-        "occupation": occupation,
+        "occupation": "student",
         "subscription": {
-            "module5": False,
+            "prelimlef": True,
             "module4": False,
             "module3": False
         },
-        "startDate": None,
-        "endDate": None
+        "startDate": start_date,
+        "endDate": end_date,
+        "layermap_url": new_layermap_file  # Store the file path in the database
     })
 
     # Generate and send OTP
@@ -158,11 +181,25 @@ def login():
     user = users_collection.find_one({"username": username})
 
     if user and check_password_hash(user['password'], password):
-        if user.get('is_verified'):
+        if not user.get('is_verified'):
+            return jsonify({"message": "Account not verified. Please verify your email."}), 403
+        
+        # Check if the current date is between startDate and endDate
+        current_date = datetime.now()
+        start_date = user.get('startDate')
+        end_date = user.get('endDate')
+
+        # If start_date and end_date are already datetime objects, no need to parse them
+        if isinstance(start_date, str):
+            start_date = datetime.strptime(start_date, '%Y-%m-%d %H:%M:%S')
+        if isinstance(end_date, str):
+            end_date = datetime.strptime(end_date, '%Y-%m-%d %H:%M:%S')
+
+        if start_date <= current_date <= end_date:
             session['user'] = username
             return jsonify({"message": "Login successful", "authenticated": True}), 200
         else:
-            return jsonify({"message": "Account not verified. Please verify your email."}), 403
+            return jsonify({"message": "Your subscription has expired. Please contact support."}), 403
     else:
         return jsonify({"message": "Invalid credentials", "authenticated": False}), 401
 
