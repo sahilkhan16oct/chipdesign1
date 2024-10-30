@@ -9,13 +9,17 @@ import platform
 from io import BytesIO
 import tempfile
 from auth import auth_bp
+from layer_routes import layer_bp
+from flask_jwt_extended import JWTManager
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for your frontend origin
 
 system = platform.system()
 
-app.secret_key = 'your_secret_key'  # Needed for session management
+app.secret_key = 'your_secret_key'
+app.config["JWT_SECRET_KEY"] = "your_jwt_secret_key"  # Configure JWT secret key
+jwt = JWTManager(app)  # Initialize JWTManager
 
 @app.route('/', methods=['GET'])
 def home():
@@ -24,6 +28,8 @@ def home():
 
 # authentication url
 app.register_blueprint(auth_bp, url_prefix='/auth')
+
+app.register_blueprint(layer_bp,url_prefix='/layers')
 
 # Path to the layer map file
 LAYERS_FILE_PATH = 'layermap.json'
@@ -177,4 +183,4 @@ def convert_gds_to_json_route():
 
 
 if __name__ == '__main__':
-     app.run(host='0.0.0.0',port=8000)
+    app.run(host='0.0.0.0',port=8000)

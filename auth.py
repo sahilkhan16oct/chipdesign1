@@ -8,6 +8,8 @@ from dotenv import load_dotenv
 import random
 import smtplib
 from email.mime.text import MIMEText
+from functools import wraps
+from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
 
 load_dotenv()
 
@@ -156,12 +158,22 @@ def signup():
         "is_verified": False,
         "occupation": "student",
         "subscription": {
-            "prelimlef": True,
-            "module4": False,
-            "module3": False
+        "prelimlef": {
+            "active": False,
+            "startDate": None,
+            "endDate": None
         },
-        "startDate": start_date,
-        "endDate": end_date,
+        "icurate": {
+            "active": True,
+            "startDate": start_date,
+            "endDate": end_date
+        },
+        "mentorme": {
+            "active": False,
+            "startDate": None,
+            "endDate": None
+        }
+    },
         "layermap_url": new_layermap_file  # Store the file path in the database
     })
 
@@ -183,25 +195,43 @@ def login():
     if user and check_password_hash(user['password'], password):
         if not user.get('is_verified'):
             return jsonify({"message": "Account not verified. Please verify your email."}), 403
-        
-        # Check if the current date is between startDate and endDate
-        current_date = datetime.now()
-        start_date = user.get('startDate')
-        end_date = user.get('endDate')
 
-        # If start_date and end_date are already datetime objects, no need to parse them
-        if isinstance(start_date, str):
-            start_date = datetime.strptime(start_date, '%Y-%m-%d %H:%M:%S')
-        if isinstance(end_date, str):
-            end_date = datetime.strptime(end_date, '%Y-%m-%d %H:%M:%S')
+        # Har subscription ka status aur dates nikaalna
+        subscription = user.get("subscription", {})
+        layermap_url = user.get("layermap_url", "")
 
-        if start_date <= current_date <= end_date:
-            session['user'] = username
-            return jsonify({"message": "Login successful", "authenticated": True}), 200
-        else:
-            return jsonify({"message": "Your subscription has expired. Please contact support."}), 403
+        # Add the layermap_url along with the subscription information to the JWT claims
+        # Subscription status and dates
+        subscription = user.get("subscription", {})
+        layermap_url = user.get("layermap_url", "")
+
+        # Simplify JWT claims structure
+        subscriptions_claims = {
+            "prelimlef": {
+                "active": subscription.get("prelimlef", {}).get("active", False),
+                "startDate": subscription.get("prelimlef", {}).get("startDate", ""),
+                "endDate": subscription.get("prelimlef", {}).get("endDate", "")
+            },
+            "icurate": {
+                "active": subscription.get("icurate", {}).get("active", False),
+                "startDate": subscription.get("icurate", {}).get("startDate", ""),
+                "endDate": subscription.get("icurate", {}).get("endDate", "")
+            },
+            "mentorme": {
+                "active": subscription.get("mentorme", {}).get("active", False),
+                "startDate": subscription.get("mentorme", {}).get("startDate", ""),
+                "endDate": subscription.get("mentorme", {}).get("endDate", "")
+            },
+            "layermap_url": layermap_url  # Add layermap_url to the JWT claims
+        }
+
+        # Create JWT token with additional claims
+        access_token = create_access_token(identity=username, additional_claims=subscriptions_claims)
+        return jsonify(access_token=access_token, message="Login successful"), 200
     else:
-        return jsonify({"message": "Invalid credentials", "authenticated": False}), 401
+        return jsonify({"message": "Invalid credentials"}), 401
+
+        
 
 @auth_bp.route('/logout', methods=['POST'])
 def logout():
@@ -213,3 +243,25 @@ def check_auth():
     if 'user' in session:
         return jsonify({"authenticated": True})
     return jsonify({"authenticated": False}), 401
+
+
+
+# def authenticate_and_authorize(func):
+#     @wraps(func)
+#     def wrapper(*args, **kwargs):
+#         username = session.get('user')
+#         if not username:
+#             return jsonify({"message": "User not authenticated"}), 401
+        
+#         user = users_collection.find_one({"username": username})
+#         if not user:
+#             return jsonify({"message": "User not found"}), 404
+        
+#         # Check if `icurate` subscription is True
+#         if not user.get("subscription", {}).get("icurate", False):
+#             return jsonify({"message": "Access denied. icurate subscription is required"}), 403
+
+#         # Pass user data to the function
+#         return func(user, *args, **kwargs)
+    
+#     return wrapper
