@@ -238,11 +238,11 @@ def logout():
     session.pop('user', None)
     return jsonify({"message": "Logged out", "authenticated": False})
 
-@auth_bp.route('/check-auth', methods=['GET'])
-def check_auth():
-    if 'user' in session:
-        return jsonify({"authenticated": True})
-    return jsonify({"authenticated": False}), 401
+# @auth_bp.route('/check-auth', methods=['GET'])
+# def check_auth():
+#     if 'user' in session:
+#         return jsonify({"authenticated": True})
+#     return jsonify({"authenticated": False}), 401
 
 
 

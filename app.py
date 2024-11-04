@@ -167,6 +167,7 @@ def convert_gds_to_json_route():
 
             try:
                 # Convert the GDS file to JSON using the file path
+                sleep(60)       
                 json_data = convert_gds_to_json(temp_gds_file_path)  # Pass the temp file path to the function
 
                 # Return the JSON data as a response
