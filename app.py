@@ -11,6 +11,7 @@ import tempfile
 from auth import auth_bp
 from layer_routes import layer_bp
 from flask_jwt_extended import JWTManager
+from time import sleep
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for your frontend origin
@@ -113,6 +114,7 @@ else:  # Linux and other systems
 
 @app.route('/convert-and-save-gds', methods=['POST'])
 def convert_and_save_gds():
+        sleep(60)
         data = request.json
         json_content = data.get('json_content', '')
         project_name = data.get('project_name', '')
