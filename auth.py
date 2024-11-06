@@ -10,6 +10,7 @@ import smtplib
 from email.mime.text import MIMEText
 from functools import wraps
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
+from flask_jwt_extended import jwt_required, get_jwt
 
 load_dotenv()
 
@@ -18,6 +19,7 @@ mongo_uri = f"mongodb+srv://innoveotech:{os.getenv('DB_PASSWORD')}@azeem.af86m.m
 client = MongoClient(mongo_uri)
 db = client['chipdesign1']
 users_collection = db['users']
+layermap_collection = db["layermap"]
 
 auth_bp = Blueprint('auth', __name__)
 
@@ -146,9 +148,7 @@ def signup():
     start_date = datetime.now()
     end_date = start_date + timedelta(days=28)
 
-    # Create a separate layermap file for the user
-    new_layermap_file = f"{LAYERS_DIR}/{username}_layermap.json"
-    shutil.copyfile(BASE_LAYERS_FILE, new_layermap_file)
+    
 
     # Insert user into the database
     users_collection.insert_one({
@@ -173,8 +173,7 @@ def signup():
             "startDate": None,
             "endDate": None
         }
-    },
-        "layermap_url": new_layermap_file  # Store the file path in the database
+    } 
     })
 
     # Generate and send OTP
@@ -198,15 +197,10 @@ def login():
 
         # Har subscription ka status aur dates nikaalna
         subscription = user.get("subscription", {})
-        layermap_url = user.get("layermap_url", "")
-
-        # Add the layermap_url along with the subscription information to the JWT claims
-        # Subscription status and dates
-        subscription = user.get("subscription", {})
-        layermap_url = user.get("layermap_url", "")
-
+       
         # Simplify JWT claims structure
         subscriptions_claims = {
+            "username": username,
             "prelimlef": {
                 "active": subscription.get("prelimlef", {}).get("active", False),
                 "startDate": subscription.get("prelimlef", {}).get("startDate", ""),
@@ -222,7 +216,7 @@ def login():
                 "startDate": subscription.get("mentorme", {}).get("startDate", ""),
                 "endDate": subscription.get("mentorme", {}).get("endDate", "")
             },
-            "layermap_url": layermap_url  # Add layermap_url to the JWT claims
+            
         }
 
         # Create JWT token with additional claims
@@ -231,6 +225,34 @@ def login():
     else:
         return jsonify({"message": "Invalid credentials"}), 401
 
+
+@auth_bp.route('/generate-layermap', methods=['POST'])
+@jwt_required()
+def generate_layermap():
+    # Retrieve authenticated user's username from JWT claims
+    jwt_claims = get_jwt()
+    username = jwt_claims.get('username')
+
+    if not username:
+        return jsonify({"message": "Username not found in JWT claims"}), 401
+    
+     # Check if a layermap file already exists for this user
+    existing_layermap = layermap_collection.find_one({"username": username})
+    if existing_layermap:
+        return jsonify({"message": "Layermap already exists for this user", "layermap_url": existing_layermap["layermap_url"]}), 200
+
+    # Create a separate layermap file for the authenticated user
+    new_layermap_file = f"{LAYERS_DIR}/{username}_layermap.json"
+    shutil.copyfile(BASE_LAYERS_FILE, new_layermap_file)
+
+    # Insert the layermap entry into the `layermap` collection
+    layermap_collection.insert_one({
+        "username": username,
+        "layermap_url": new_layermap_file,
+        
+    })
+
+    return jsonify({"message": "Layermap generated successfully"}), 201
         
 
 @auth_bp.route('/logout', methods=['POST'])
@@ -238,30 +260,4 @@ def logout():
     session.pop('user', None)
     return jsonify({"message": "Logged out", "authenticated": False})
 
-# @auth_bp.route('/check-auth', methods=['GET'])
-# def check_auth():
-#     if 'user' in session:
-#         return jsonify({"authenticated": True})
-#     return jsonify({"authenticated": False}), 401
 
-
-
-# def authenticate_and_authorize(func):
-#     @wraps(func)
-#     def wrapper(*args, **kwargs):
-#         username = session.get('user')
-#         if not username:
-#             return jsonify({"message": "User not authenticated"}), 401
-        
-#         user = users_collection.find_one({"username": username})
-#         if not user:
-#             return jsonify({"message": "User not found"}), 404
-        
-#         # Check if `icurate` subscription is True
-#         if not user.get("subscription", {}).get("icurate", False):
-#             return jsonify({"message": "Access denied. icurate subscription is required"}), 403
-
-#         # Pass user data to the function
-#         return func(user, *args, **kwargs)
-    
-#     return wrapper
