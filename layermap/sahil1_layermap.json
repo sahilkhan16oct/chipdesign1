@@ -5,7 +5,7 @@
             "datatype_name": "drawing",
             "datatype_number": "0",
             "editable": true,
-            "layer_name": "NW",
+            "layer_name": "SW",
             "layer_number": "1",
             "outline": {
                 "type": "solid",
