@@ -7,7 +7,7 @@ import subprocess
 import tempfile
 from jsonToGds import convert_json_to_gds
 import os
-
+import time
 # Initialize MongoDB client
 mongo_uri = f"mongodb+srv://innoveotech:{os.getenv('DB_PASSWORD')}@azeem.af86m.mongodb.net/chipdesign1?retryWrites=true&w=majority"
 client = MongoClient(mongo_uri)
@@ -105,7 +105,7 @@ def generate_gds():
         print("Highlight_DRC.py stdout:", result.stdout.decode())
         print("Highlight_DRC.py stderr:", result.stderr.decode())
 
-        # After the GDS file is generated, send it back to the user
+        time.sleep(0.01)
         gds_output_path = os.path.join(app_base_dir, 'verifire.command_line_14', 'test_runner', 'sahil', f"{username}_DRC_GDS.gds")
         if os.path.exists(gds_output_path):
             return send_file(gds_output_path, as_attachment=True)
