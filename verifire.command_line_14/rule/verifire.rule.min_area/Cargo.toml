@@ -1,0 +1,7 @@
+[package]
+name = "min_area"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+foundation = { path = "../../lib/verifire.lib.foundation" }

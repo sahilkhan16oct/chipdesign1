@@ -1,0 +1,7 @@
+*/raw.json
+*/back.gds
+
+# macOS system files
+.DS_Store
+
+*.rve

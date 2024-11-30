@@ -1,0 +1,41 @@
+{
+    "input": "test_6.gds",
+    "output": "test_6_1.rve",
+    "cell": "secrq2",
+    "tasks": [
+        {
+            "rule_type": "poly_enclosure",
+            "inner": {
+                "base": {
+                    "layer_number": 40,
+                    "datatype_number": 0
+                }
+            },
+            "outer": {
+                "base": {
+                    "layer_number": 235,
+                    "datatype_number": 0
+                }
+            },
+            "value": 1,
+            "direction": "dxy"
+        },
+        {
+            "rule_type": "poly_enclosure",
+            "inner": {
+                "base": {
+                    "layer_number": 40,
+                    "datatype_number": 0
+                }
+            },
+            "outer": {
+                "base": {
+                    "layer_number": 32,
+                    "datatype_number": 0
+                }
+            },
+            "value": 1,
+            "direction": "dxy"
+        }
+    ]
+}

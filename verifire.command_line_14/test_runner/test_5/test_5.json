@@ -1,0 +1,18 @@
+{
+    "input": "xr03d7_15x30.gds",
+    "output": "xr03d7_15x30.rve",
+    "cell": "xr03d7_15x30",
+    "tasks": [
+        {
+            "rule_type": "spacing",
+            "viewport_0": {
+                "base": {
+                    "layer_number": 1,
+                    "datatype_number": 0
+                }
+            },
+            "spacing": 0.3,
+            "direction": "dxy"
+        }
+    ]
+}

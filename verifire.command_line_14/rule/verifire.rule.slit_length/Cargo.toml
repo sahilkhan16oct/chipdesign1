@@ -1,0 +1,8 @@
+[package]
+name = "slit_length"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+foundation = { path = "../../lib/verifire.lib.foundation" }
+min_max_width = { path = "../../rule/verifire.rule.min_max_width" }

@@ -1,0 +1,16 @@
+{
+    "input": "VRLogic_flat.gds",
+    "output": "VRLogic_flat.rve",
+    "cell": "counter",
+    "tasks": [
+        {
+            "rule_type": "filter",
+            "viewport": {
+                "base": {
+                    "layer_number": 40,
+                    "datatype_number": 0
+                }
+            }
+        }
+    ]
+}

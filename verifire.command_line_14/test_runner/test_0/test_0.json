@@ -1,0 +1,39 @@
+{
+    "input": "test_0.gds",
+    "output": "test_0.rve",
+    "cell": "MAIN",
+    "tasks": [
+        {
+            "rule_type": "min_max_width",
+            "viewport": {
+                "base": {
+                    "layer_number": 0,
+                    "datatype_number": 0
+                }
+            },
+            "algorithm": "min_width_dxy",
+            "value": 20.0
+        },
+        {
+            "rule_type": "notch",
+            "viewport": {
+                "base": {
+                    "layer_number": 0,
+                    "datatype_number": 0
+                }
+            },
+            "min_length": 12.0
+        },
+        {
+            "rule_type": "spacing",
+            "viewport_0": {
+                "base": {
+                    "layer_number": 0,
+                    "datatype_number": 0
+                }
+            },
+            "spacing": 15.0,
+            "direction": "dxy"
+        }
+    ]
+}

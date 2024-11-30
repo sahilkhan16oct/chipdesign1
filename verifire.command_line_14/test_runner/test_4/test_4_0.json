@@ -1,0 +1,39 @@
+{
+    "input": "10t_cells.gds",
+    "output": "test_4_0.rve",
+    "cell": "invbd7",
+    "tasks": [
+        {
+            "rule_type": "min_max_width",
+            "viewport": {
+                "base": {
+                    "layer_number": 3,
+                    "datatype_number": 0
+                }
+            },
+            "algorithm": "min_width_dxy",
+            "value": 7
+        },
+        {
+            "rule_type": "notch",
+            "viewport": {
+                "base": {
+                    "layer_number": 3,
+                    "datatype_number": 0
+                }
+            },
+            "min_length": 12.0
+        },
+        {
+            "rule_type": "spacing",
+            "viewport_0": {
+                "base": {
+                    "layer_number": 3,
+                    "datatype_number": 0
+                }
+            },
+            "spacing": 1.4,
+            "direction": "dxy"
+        }
+    ]
+}

@@ -1,0 +1,175 @@
+{
+    "input": "viewport.gds",
+    "output": "test_1.rve",
+    "cell": "MAIN",
+    "tasks": [
+        {
+            "rule_type": "min_area",
+            "viewport": {
+                "base": {
+                    "index": 2,
+                    "datatype": 0
+                },
+                "filter": {
+                    "areas": [
+                        {
+                            "layer": {
+                                "index": 1,
+                                "datatype": 0
+                            },
+                            "operation": "select"
+                        }
+                    ]
+                }
+            },
+            "min_area": 100
+        },
+        {
+            "rule_type": "min_area",
+            "viewport": {
+                "base": {
+                    "index": 2,
+                    "datatype": 0
+                },
+                "filter": {
+                    "areas": [
+                        {
+                            "layer": {
+                                "index": 1,
+                                "datatype": 0
+                            },
+                            "operation": "select_full"
+                        }
+                    ]
+                }
+            },
+            "min_area": 100
+        },
+        {
+            "rule_type": "min_area",
+            "viewport": {
+                "base": {
+                    "index": 2,
+                    "datatype": 0
+                },
+                "filter": {
+                    "areas": [
+                        {
+                            "layer": {
+                                "index": 1,
+                                "datatype": 0
+                            },
+                            "operation": "invert_select"
+                        }
+                    ]
+                }
+            },
+            "min_area": 100
+        },
+        {
+            "rule_type": "min_area",
+            "viewport": {
+                "base": {
+                    "index": 2,
+                    "datatype": 0
+                },
+                "filter": {
+                    "areas": [
+                        {
+                            "layer": {
+                                "index": 1,
+                                "datatype": 0
+                            },
+                            "operation": "invert_select_full"
+                        }
+                    ]
+                }
+            },
+            "min_area": 100
+        },
+        {
+            "rule_type": "min_area",
+            "viewport": {
+                "base": {
+                    "index": 2,
+                    "datatype": 0
+                },
+                "filter": {
+                    "areas": [
+                        {
+                            "layer": {
+                                "index": 1,
+                                "datatype": 0
+                            },
+                            "operation": "union"
+                        }
+                    ]
+                }
+            },
+            "min_area": 100
+        },
+        {
+            "rule_type": "min_area",
+            "viewport": {
+                "base": {
+                    "index": 2,
+                    "datatype": 0
+                },
+                "filter": {
+                    "areas": [
+                        {
+                            "layer": {
+                                "index": 1,
+                                "datatype": 0
+                            },
+                            "operation": "intersection"
+                        }
+                    ]
+                }
+            },
+            "min_area": 100
+        },
+        {
+            "rule_type": "min_area",
+            "viewport": {
+                "base": {
+                    "index": 2,
+                    "datatype": 0
+                },
+                "filter": {
+                    "areas": [
+                        {
+                            "layer": {
+                                "index": 1,
+                                "datatype": 0
+                            },
+                            "operation": "difference"
+                        }
+                    ]
+                }
+            },
+            "min_area": 100
+        },
+        {
+            "rule_type": "min_area",
+            "viewport": {
+                "base": {
+                    "index": 2,
+                    "datatype": 0
+                },
+                "filter": {
+                    "areas": [
+                        {
+                            "layer": {
+                                "index": 1,
+                                "datatype": 0
+                            },
+                            "operation": "exclusion"
+                        }
+                    ]
+                }
+            },
+            "min_area": 100
+        }
+    ]
+}

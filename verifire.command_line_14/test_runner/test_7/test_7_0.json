@@ -1,0 +1,19 @@
+{
+    "input": "testCell.gds",
+    "output": "testCell_out.json",
+    "format": "json",
+    "cell": "testCell",
+    "tasks": [
+        {
+            "rule_type": "min_max_width",
+            "algorithm": "min_width_dxy",
+            "viewport": {
+                "base": {
+                    "layer_number": 1,
+                    "datatype_number": 0
+                }
+            },
+            "value": 0.1
+        }
+    ]
+}

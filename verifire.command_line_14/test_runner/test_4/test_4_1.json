@@ -1,0 +1,42 @@
+{
+    "input": "10t_cells.gds",
+    "output": "test_4_1.rve",
+    "cell": "ad01d0",
+    "tasks": [
+        {
+            "rule_type": "rect_enclosure",
+            "outer": {
+                "base": {
+                    "layer_number": 8,
+                    "datatype_number": 0
+                }
+            },
+            "rects": {
+                "base": {
+                    "layer_number": 34,
+                    "datatype_number": 0
+                }
+            },
+            "expression": "(left_0 && right_0 && top_0 && bottom_0)",
+            "value_0": 0.1
+        },
+        {
+            "rule_type": "rect_enclosure",
+            "outer": {
+                "base": {
+                    "layer_number": 40,
+                    "datatype_number": 0
+                }
+            },
+            "rects": {
+                "base": {
+                    "layer_number": 34,
+                    "datatype_number": 0
+                }
+            },
+            "expression": "((left_0 && right_0) && (top_1 && bottom_1)) || ((top_0 && bottom_0) && (left_1 && bottom_1))",
+            "value_0": 0.005,
+            "value_1": 0.06
+        }
+    ]
+}

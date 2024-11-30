@@ -1,0 +1,17 @@
+{
+    "input": "test_0.gds",
+    "output": "test_0.rve",
+    "cell": "MAIN",
+    "tasks": [
+        {
+            "rule_type": "check_shape",
+            "viewport": {
+                "base": {
+                    "layer_number": 0,
+                    "datatype_number": 0
+                }
+            },
+            "form": "square"
+        }
+    ]
+}

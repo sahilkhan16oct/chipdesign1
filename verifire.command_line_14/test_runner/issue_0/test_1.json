@@ -1,0 +1,145 @@
+{
+    "input": "VRLogic_flat.gds",
+    "output": "VRLogic_flat.rve",
+    "cell": "counter",
+    "tasks": [
+        {
+            "rule_type": "min_max_width",
+            "viewport": {
+                "base": {
+                    "layer_number": 8,
+                    "datatype_number": 0
+                }
+            },
+            "value": 0.18,
+            "algorithm":"min_width_dxy"
+        },
+        {
+            "rule_type": "min_max_width",
+            "viewport": {
+                "base": {
+                    "layer_number": 40,
+                    "datatype_number": 0
+                }
+            },
+            "value": 0.23,
+            "algorithm":"min_width_dxy"
+        },
+        {
+            "rule_type": "exact_size",
+            "viewport": {
+                "base": {
+                    "layer_number": 34,
+                    "datatype_number": 0
+                }
+            },
+            "width": 0.22,
+            "height": 0.22
+        },
+        {
+            "rule_type": "spacing",
+            "viewport_0": {
+                "base": {
+                    "layer_number": 40,
+                    "datatype_number": 0
+                }
+            },
+            "spacing": 0.23,
+            "direction": "dxy"
+        },
+        {
+            "rule_type": "angle",
+            "viewport": {
+                "base": {
+                    "layer_number": 8,
+                    "datatype_number": 0
+                }
+            },
+            "is_45_allowed": true
+        },
+        {
+            "rule_type": "min_area",
+            "viewport": {
+                "base": {
+                    "layer_number": 40,
+                    "datatype_number": 0
+                }
+            },
+            "min_area": 0.202
+        },
+        {
+            "rule_type": "rect_enclosure",
+            "outer": {
+                "base": {
+                    "layer_number": 40,
+                    "datatype_number": 0
+                }
+            },
+            "rects": {
+                "base": {
+                    "layer_number": 34,
+                    "datatype_number": 0
+                }
+            },
+            "expression": "(left_0 && right_0 && top_1 && bottom_1) || (top_0 && bottom_0 && left_1 && right_1)",
+            "value_0": 0.005,
+            "value_1": 0.06
+        },
+        {
+            "rule_type": "poly_enclosure",
+            "inner": {
+                "base": {
+                    "layer_number": 9,
+                    "datatype_number": 0
+                }
+            },
+            "outer": {
+                "base": {
+                    "layer_number": 34,
+                    "datatype_number": 0
+                },
+                "filter": {
+                    "areas": [
+                        {
+                            "layer": {
+                                "layer_number": 9,
+                                "datatype_number": 0
+                            },
+                            "operation": "select"
+                        }
+                    ]
+                }
+            },
+            "value": 0.1,
+            "direction": "dxy"
+        },
+        {
+            "rule_type": "poly_enclosure",
+            "inner": {
+                "base": {
+                    "layer_number": 8,
+                    "datatype_number": 0
+                }
+            },
+            "outer": {
+                "base": {
+                    "layer_number": 34,
+                    "datatype_number": 0
+                },
+                "filter": {
+                    "areas": [
+                        {
+                            "layer": {
+                                "layer_number": 8,
+                                "datatype_number": 0
+                            },
+                            "operation": "select"
+                        }
+                    ]
+                }
+            },
+            "value": 0.1,
+            "direction": "dxy"
+        }
+    ]
+}

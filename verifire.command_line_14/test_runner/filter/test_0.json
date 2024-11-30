@@ -1,0 +1,230 @@
+{
+    "input": "viewport.gds",
+    "output": "test_2.rve",
+    "cell": "MAIN",
+    "tasks": [
+        {
+            "rule_type": "filter",
+            "viewport": {
+                "base": {
+                    "layer_number": 2,
+                    "datatype_number": 0
+                }
+            }
+        },
+        {
+            "rule_type": "filter",
+            "viewport": {
+                "base": {
+                    "layer_number": 2,
+                    "datatype_number": 0
+                },
+                "filter": {
+                    "areas": [
+                        {
+                            "layer": {
+                                "layer_number": 1,
+                                "datatype_number": 0
+                            },
+                            "operation": "select"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "rule_type": "filter",
+            "viewport": {
+                "base": {
+                    "layer_number": 2,
+                    "datatype_number": 0
+                },
+                "filter": {
+                    "areas": [
+                        {
+                            "layer": {
+                                "layer_number": 1,
+                                "datatype_number": 0
+                            },
+                            "operation": "select_full"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "rule_type": "filter",
+            "viewport": {
+                "base": {
+                    "layer_number": 2,
+                    "datatype_number": 0
+                },
+                "filter": {
+                    "areas": [
+                        {
+                            "layer": {
+                                "layer_number": 1,
+                                "datatype_number": 0
+                            },
+                            "operation": "invert_select"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "rule_type": "filter",
+            "viewport": {
+                "base": {
+                    "layer_number": 2,
+                    "datatype_number": 0
+                },
+                "filter": {
+                    "areas": [
+                        {
+                            "layer": {
+                                "layer_number": 1,
+                                "datatype_number": 0
+                            },
+                            "operation": "invert_select_full"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "rule_type": "filter",
+            "viewport": {
+                "base": {
+                    "layer_number": 2,
+                    "datatype_number": 0
+                },
+                "filter": {
+                    "areas": [
+                        {
+                            "layer": {
+                                "layer_number": 1,
+                                "datatype_number": 0
+                            },
+                            "operation": "union"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "rule_type": "filter",
+            "viewport": {
+                "base": {
+                    "layer_number": 2,
+                    "datatype_number": 0
+                },
+                "filter": {
+                    "areas": [
+                        {
+                            "layer": {
+                                "layer_number": 1,
+                                "datatype_number": 0
+                            },
+                            "operation": "intersection"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "rule_type": "filter",
+            "viewport": {
+                "base": {
+                    "layer_number": 2,
+                    "datatype_number": 0
+                },
+                "filter": {
+                    "areas": [
+                        {
+                            "layer": {
+                                "layer_number": 1,
+                                "datatype_number": 0
+                            },
+                            "operation": "difference"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "rule_type": "filter",
+            "viewport": {
+                "base": {
+                    "layer_number": 2,
+                    "datatype_number": 0
+                },
+                "filter": {
+                    "areas": [
+                        {
+                            "layer": {
+                                "layer_number": 1,
+                                "datatype_number": 0
+                            },
+                            "operation": "exclusion"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "rule_type": "filter",
+            "viewport": {
+                "base": {
+                    "layer_number": 3,
+                    "datatype_number": 0
+                },
+                "filter": {
+                    "areas": [
+                        {
+                            "layer": {
+                                "layer_number": 0,
+                                "datatype_number": 0
+                            },
+                            "operation": "select"
+                        },
+                        {
+                            "layer": {
+                                "layer_number": 0,
+                                "datatype_number": 1
+                            },
+                            "operation": "select"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "rule_type": "filter",
+            "viewport": {
+                "base": {
+                    "layer_number": 3,
+                    "datatype_number": 0
+                },
+                "filter": {
+                    "areas": [
+                        {
+                            "layer": {
+                                "layer_number": 0,
+                                "datatype_number": 0
+                            },
+                            "operation": "select"
+                        },
+                        {
+                            "layer": {
+                                "layer_number": 0,
+                                "datatype_number": 1
+                            },
+                            "operation": "invert_select"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

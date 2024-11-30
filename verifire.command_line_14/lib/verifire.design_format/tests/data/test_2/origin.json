@@ -1,0 +1,655 @@
+{
+  "name": "cell_test",
+  "units": {
+    "user_size": 0.001,
+    "db_size": 1e-9
+  },
+  "cells": [
+    {
+      "cell_id": "CORNER_21",
+      "cell_name": "CORNER_21",
+      "properties": [
+        {
+          "type": "Polygon",
+          "layer_number": 2,
+          "datatype_number": 1,
+          "coordinates": [
+            [
+              -5.0,
+              -5.0
+            ],
+            [
+              -5.0,
+              5.0
+            ],
+            [
+              5.0,
+              5.0
+            ],
+            [
+              5.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -5.0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "cell_id": "CORNER_24",
+      "cell_name": "CORNER_24",
+      "properties": [
+        {
+          "type": "Polygon",
+          "layer_number": 2,
+          "datatype_number": 4,
+          "coordinates": [
+            [
+              -5.0,
+              -5.0
+            ],
+            [
+              -5.0,
+              5.0
+            ],
+            [
+              5.0,
+              5.0
+            ],
+            [
+              5.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -5.0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "cell_id": "CORNER_22",
+      "cell_name": "CORNER_22",
+      "properties": [
+        {
+          "type": "Polygon",
+          "layer_number": 2,
+          "datatype_number": 2,
+          "coordinates": [
+            [
+              -5.0,
+              -5.0
+            ],
+            [
+              -5.0,
+              5.0
+            ],
+            [
+              5.0,
+              5.0
+            ],
+            [
+              5.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -5.0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "cell_id": "MAIN",
+      "cell_name": "MAIN",
+      "properties": [
+        {
+          "type": "Instance",
+          "name": "WINDOW",
+          "origin": [
+            [
+              25.0,
+              20.0
+            ]
+          ],
+          "mirror_x": false
+        },
+        {
+          "type": "Instance",
+          "name": "RECT",
+          "origin": [
+            [
+              50.0,
+              20.0
+            ]
+          ],
+          "mirror_x": false
+        },
+        {
+          "type": "Instance",
+          "name": "HOME",
+          "origin": [
+            [
+              75.0,
+              20.0
+            ]
+          ],
+          "mirror_x": false
+        },
+        {
+          "type": "Instance",
+          "name": "CORNER_10",
+          "origin": [
+            [
+              10.0,
+              40.0
+            ]
+          ],
+          "mirror_x": false
+        },
+        {
+          "type": "Instance",
+          "name": "CORNER_11",
+          "origin": [
+            [
+              30.0,
+              40.0
+            ]
+          ],
+          "rotation": 90.0,
+          "mirror_x": false
+        },
+        {
+          "type": "Instance",
+          "name": "CORNER_12",
+          "origin": [
+            [
+              50.0,
+              40.0
+            ]
+          ],
+          "rotation": 180.0,
+          "mirror_x": false
+        },
+        {
+          "type": "Instance",
+          "name": "CORNER_13",
+          "origin": [
+            [
+              70.0,
+              40.0
+            ]
+          ],
+          "rotation": 270.0,
+          "mirror_x": false
+        },
+        {
+          "type": "Instance",
+          "name": "CORNER_14",
+          "origin": [
+            [
+              90.0,
+              40.0
+            ]
+          ],
+          "rotation": 10.0,
+          "mirror_x": false
+        },
+        {
+          "type": "Instance",
+          "name": "CORNER_20",
+          "origin": [
+            [
+              10.0,
+              60.0
+            ]
+          ],
+          "mirror_x": true
+        },
+        {
+          "type": "Instance",
+          "name": "CORNER_21",
+          "origin": [
+            [
+              30.0,
+              60.0
+            ]
+          ],
+          "rotation": 90.0,
+          "mirror_x": true
+        },
+        {
+          "type": "Instance",
+          "name": "CORNER_22",
+          "origin": [
+            [
+              50.0,
+              60.0
+            ]
+          ],
+          "rotation": 180.0,
+          "mirror_x": true
+        },
+        {
+          "type": "Instance",
+          "name": "CORNER_23",
+          "origin": [
+            [
+              70.0,
+              60.0
+            ]
+          ],
+          "rotation": 270.0,
+          "mirror_x": true
+        },
+        {
+          "type": "Instance",
+          "name": "CORNER_24",
+          "origin": [
+            [
+              90.0,
+              60.0
+            ]
+          ],
+          "rotation": 10.0,
+          "mirror_x": true
+        }
+      ]
+    },
+    {
+      "cell_id": "HOME",
+      "cell_name": "HOME",
+      "properties": [
+        {
+          "type": "Polygon",
+          "layer_number": 0,
+          "datatype_number": 0,
+          "coordinates": [
+            [
+              -10.0,
+              -10.0
+            ],
+            [
+              -10.0,
+              0.0
+            ],
+            [
+              0.0,
+              10.0
+            ],
+            [
+              10.0,
+              0.0
+            ],
+            [
+              10.0,
+              -10.0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "cell_id": "CORNER_20",
+      "cell_name": "CORNER_20",
+      "properties": [
+        {
+          "type": "Polygon",
+          "layer_number": 2,
+          "datatype_number": 0,
+          "coordinates": [
+            [
+              -5.0,
+              -5.0
+            ],
+            [
+              -5.0,
+              5.0
+            ],
+            [
+              5.0,
+              5.0
+            ],
+            [
+              5.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -5.0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "cell_id": "CORNER_23",
+      "cell_name": "CORNER_23",
+      "properties": [
+        {
+          "type": "Polygon",
+          "layer_number": 2,
+          "datatype_number": 3,
+          "coordinates": [
+            [
+              -5.0,
+              -5.0
+            ],
+            [
+              -5.0,
+              5.0
+            ],
+            [
+              5.0,
+              5.0
+            ],
+            [
+              5.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -5.0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "cell_id": "RECT",
+      "cell_name": "RECT",
+      "properties": [
+        {
+          "type": "Rectangle",
+          "layer_number": 0,
+          "datatype_number": 0,
+          "coordinates": [
+            [
+              -10.0,
+              -10.0
+            ],
+            [
+              -10.0,
+              10.0
+            ],
+            [
+              10.0,
+              10.0
+            ],
+            [
+              10.0,
+              -10.0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "cell_id": "CORNER_12",
+      "cell_name": "CORNER_12",
+      "properties": [
+        {
+          "type": "Polygon",
+          "layer_number": 1,
+          "datatype_number": 2,
+          "coordinates": [
+            [
+              -5.0,
+              -5.0
+            ],
+            [
+              -5.0,
+              5.0
+            ],
+            [
+              5.0,
+              5.0
+            ],
+            [
+              5.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -5.0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "cell_id": "CORNER_13",
+      "cell_name": "CORNER_13",
+      "properties": [
+        {
+          "type": "Polygon",
+          "layer_number": 1,
+          "datatype_number": 3,
+          "coordinates": [
+            [
+              -5.0,
+              -5.0
+            ],
+            [
+              -5.0,
+              5.0
+            ],
+            [
+              5.0,
+              5.0
+            ],
+            [
+              5.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -5.0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "cell_id": "WINDOW",
+      "cell_name": "WINDOW",
+      "properties": [
+        {
+          "type": "Polygon",
+          "layer_number": 0,
+          "datatype_number": 0,
+          "coordinates": [
+            [
+              -5.0,
+              -5.0
+            ],
+            [
+              -10.0,
+              -10.0
+            ],
+            [
+              -10.0,
+              10.0
+            ],
+            [
+              10.0,
+              10.0
+            ],
+            [
+              10.0,
+              -10.0
+            ],
+            [
+              -10.0,
+              -10.0
+            ],
+            [
+              -5.0,
+              -5.0
+            ],
+            [
+              5.0,
+              -5.0
+            ],
+            [
+              5.0,
+              5.0
+            ],
+            [
+              -5.0,
+              5.0
+            ],
+            [
+              -5.0,
+              -5.0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "cell_id": "CORNER_11",
+      "cell_name": "CORNER_11",
+      "properties": [
+        {
+          "type": "Polygon",
+          "layer_number": 1,
+          "datatype_number": 1,
+          "coordinates": [
+            [
+              -5.0,
+              -5.0
+            ],
+            [
+              -5.0,
+              5.0
+            ],
+            [
+              5.0,
+              5.0
+            ],
+            [
+              5.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -5.0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "cell_id": "CORNER_10",
+      "cell_name": "CORNER_10",
+      "properties": [
+        {
+          "type": "Polygon",
+          "layer_number": 1,
+          "datatype_number": 0,
+          "coordinates": [
+            [
+              -5.0,
+              -5.0
+            ],
+            [
+              -5.0,
+              5.0
+            ],
+            [
+              5.0,
+              5.0
+            ],
+            [
+              5.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -5.0
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "cell_id": "CORNER_14",
+      "cell_name": "CORNER_14",
+      "properties": [
+        {
+          "type": "Polygon",
+          "layer_number": 1,
+          "datatype_number": 4,
+          "coordinates": [
+            [
+              -5.0,
+              -5.0
+            ],
+            [
+              -5.0,
+              5.0
+            ],
+            [
+              5.0,
+              5.0
+            ],
+            [
+              5.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              -5.0
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

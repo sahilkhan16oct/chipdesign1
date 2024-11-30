@@ -1,0 +1,111 @@
+{
+    "input": "invaA_SVT_def.gds",
+    "output": "output.rve",
+    "lvs_output": "output.lvs",
+    "format": "rve",
+    "cell": "invaA_SVT",
+    "tasks": [
+        {
+            "rule_type": "lvs",
+            "poly": {
+                "base": {
+                    "layer_number": 8,
+                    "datatype_number": 0
+                }
+            },
+            "diffusion": {
+                "base": {
+                    "layer_number": 9,
+                    "datatype_number": 0
+                }
+            },
+            "transistors": [
+                 {
+                    "name": "NMOS",
+                    "id_prefix": "M",
+                    "power_supply": "VSS",
+                    "source_drain_implant": {
+                        "layer_number": 32,
+                        "datatype_number": 0
+                    },
+                    "body_implant": {
+                        "layer_number": 31,
+                        "datatype_number": 0
+                    }
+                },
+                {
+                    "name": "PMOS",
+                    "id_prefix": "M",
+                    "power_supply": "VDD",
+                    "source_drain_implant": {
+                        "layer_number": 31,
+                        "datatype_number": 0
+                    },
+                    "body_implant": {
+                        "layer_number": 32,
+                        "datatype_number": 0
+                    },
+                    "x_well": {
+                        "layer_number": 3,
+                        "datatype_number": 0
+                    }
+                }   
+            ],
+            "labels": [
+                [
+                    [63, 0], [42, 0]
+                ],
+                [
+                    [63, 0], [40, 0]
+                ]
+            ],
+            "layer_stack": [
+                [
+                    [9, 0], [34, 0], [40, 0], [41, 0], [42, 0]
+                ],
+                [
+                    [8, 0], [34, 0]
+                ]
+            ]
+        },
+        {
+            "rule_type": "connectivity",
+            "only_errors": false,
+            "filters": [
+                {
+                    "base": {
+                        "layer_number": 9,
+                        "datatype_number": 0
+                    },
+                    "filter": {
+                        "areas": [
+                            {
+                                "layer":{
+                                    "layer_number": 8,
+                                    "datatype_number": 0
+                                },
+                                "operation": "difference"
+                            }
+                        ]
+                    }
+                }
+            ],
+            "labels": [
+                [
+                    [63, 0], [42, 0]
+                ],
+                [
+                    [63, 0], [40, 0]
+                ]
+            ],
+            "layer_stack": [
+                [
+                    [9, 0], [34, 0], [40, 0], [41, 0], [42, 0]
+                ],
+                [
+                    [8, 0], [34, 0]
+                ]
+            ]
+        }
+    ]
+}

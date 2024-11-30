@@ -1,0 +1,73 @@
+{
+    "input": "xr_gds_4_or.gds",
+    "output": "xr_gds_4_or.rve",
+    "cell": "xr03d7",
+    "tasks": [
+        {
+            "rule_type": "min_max_width",
+            "viewport": {
+                "base": {
+                    "layer_number": 1,
+                    "datatype_number": 0
+                }
+            },
+            "algorithm": "min_width_x",
+            "value": 0.28
+        },
+        {
+            "rule_type": "min_max_width",
+            "viewport": {
+                "base": {
+                    "layer_number": 3,
+                    "datatype_number": 0
+                }
+            },
+            "algorithm": "min_width_x",
+            "value": 0.18
+        },
+        {
+            "rule_type": "min_max_width",
+            "viewport": {
+                "base": {
+                    "layer_number": 4,
+                    "datatype_number": 0
+                }
+            },
+            "algorithm": "min_width_x",
+            "value": 0.44
+        },
+        {
+            "rule_type": "min_max_width",
+            "viewport": {
+                "base": {
+                    "layer_number": 5,
+                    "datatype_number": 0
+                }
+            },
+            "algorithm": "min_width_x",
+            "value": 0.44
+        },
+        {
+            "rule_type": "min_max_width",
+            "viewport": {
+                "base": {
+                    "layer_number": 7,
+                    "datatype_number": 0
+                }
+            },
+            "algorithm": "min_width_x",
+            "value": 0.24
+        },
+        {
+            "rule_type": "min_max_width",
+            "viewport": {
+                "base": {
+                    "layer_number": 9,
+                    "datatype_number": 0
+                }
+            },
+            "algorithm": "min_width_x",
+            "value": 0.26
+        }
+    ]
+}

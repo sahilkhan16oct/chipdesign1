@@ -1,0 +1,6 @@
+.SUBCKT
+VL A device_3 VSS
+VH A device_4 VDD
+device_3 A Y VSS
+device_4 A Y VDD
+.ENDS

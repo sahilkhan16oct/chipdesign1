@@ -1,0 +1,8 @@
+[package]
+name = "enclosure_poly"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+foundation = { path = "../../lib/verifire.lib.foundation" }
+spacing = { path = "../../rule/verifire.rule.spacing" }

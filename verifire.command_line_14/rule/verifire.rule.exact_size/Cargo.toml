@@ -1,0 +1,8 @@
+[package]
+name = "exact_size"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+foundation = { path = "../../lib/verifire.lib.foundation" }
+serde = { version = "1.0.200", features = ["derive"] }

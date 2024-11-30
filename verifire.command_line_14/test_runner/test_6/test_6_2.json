@@ -1,0 +1,40 @@
+{
+    "input": "test_6.gds",
+    "output": "test_6_2.rve",
+    "cell": "secrq2",
+    "tasks": [
+        {
+            "rule_type": "slice",
+            "viewport": {
+                "base": {
+                    "layer_number": 40,
+                    "datatype_number": 0
+                }
+            },
+            "orientation": "vertical",
+            "slice_type": "original"
+        },
+        {
+            "rule_type": "slice",
+            "viewport": {
+                "base": {
+                    "layer_number": 9,
+                    "datatype_number": 0
+                }
+            },
+            "orientation": "horizontal",
+            "slice_type": "original"
+        },
+        {
+            "rule_type": "slice",
+            "viewport": {
+                "base": {
+                    "layer_number": 8,
+                    "datatype_number": 0
+                }
+            },
+            "orientation": "horizontal",
+            "slice_type": "original"
+        }
+    ]
+}

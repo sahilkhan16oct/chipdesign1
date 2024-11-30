@@ -1,0 +1,22 @@
+[workspace]
+members = [
+  "command_line",
+  "lib/verifire.lib.foundation",
+  "lib/verifire.rule_runner",
+  "rule/verifire.rule.angle",
+  "rule/verifire.rule.density",
+  "rule/verifire.rule.enclosure_poly",
+  "rule/verifire.rule.enclosure_rect",
+  "rule/verifire.rule.exact_size",
+  "rule/verifire.rule.extension",
+  "rule/verifire.rule.filter",
+  "rule/verifire.rule.lvs",
+  "rule/verifire.rule.min_area",
+  "rule/verifire.rule.min_max_width",
+  "rule/verifire.rule.notch_error",
+  "rule/verifire.rule.off_grid",
+  "rule/verifire.rule.slit_length",
+  "rule/verifire.rule.spacing",
+  "action/verifire.action.slice"
+]
+resolver = "1"

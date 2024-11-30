@@ -1,0 +1,44 @@
+{
+    "input": "10t_cells.gds",
+    "output": "test_0_out.json",
+    "cell": "secrq2",
+    "format": "json",
+    "tasks": [
+        {
+            "rule_type": "filter",
+            "viewport": {
+                "base": {
+                    "layer_number": 9,
+                    "datatype_number": 0
+                },
+                "filter": {
+                    "areas": [
+                        {
+                            "layer": {
+                                "layer_number": 8,
+                                "datatype_number": 0
+                            },
+                            "operation": "intersection"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "rule_type": "extension",
+            "poly": {
+                "base": {
+                    "layer_number": 9,
+                    "datatype_number": 0
+                }
+            },
+            "diffusion": {
+                "base": {
+                    "layer_number": 8,
+                    "datatype_number": 0
+                }
+            },
+            "value": 0.4
+        }
+    ]
+}

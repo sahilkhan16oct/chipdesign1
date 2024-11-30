@@ -1,0 +1,22 @@
+{
+    "input": "10t_cells.gds",
+    "output": "test_0.rve",
+    "cell": "secrq2",
+    "tasks": [
+        {
+            "rule_type": "density",
+            "viewport": {
+                "base": {
+                    "layer_number": 8,
+                    "datatype_number": 0
+                }
+            },
+            "density": 0.2,
+            "sampling_level": 12,
+            "window_width": 0.1,
+            "window_height": 0.1,
+            "union_result": false,
+            "is_debug": false
+        }
+    ]
+}

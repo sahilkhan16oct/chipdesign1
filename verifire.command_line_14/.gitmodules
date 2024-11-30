@@ -1,0 +1,54 @@
+[submodule "lib/verifire.lib.foundation"]
+	path = lib/verifire.lib.foundation
+	url = git@github.com:Logicknots/verifire.lib.foundation.git
+[submodule "lib/verifire.rule_runner"]
+	path = lib/verifire.rule_runner
+	url = git@github.com:Logicknots/verifire.rule_runner.git
+[submodule "rule/verifire.rule.angle"]
+	path = rule/verifire.rule.angle
+	url = git@github.com:Logicknots/verifire.rule.angle.git
+[submodule "rule/verifire.rule.enclosure_rect"]
+	path = rule/verifire.rule.enclosure_rect
+	url = git@github.com:Logicknots/verifire.rule.enclosure_rect.git
+[submodule "rule/verifire.rule.exact_size"]
+	path = rule/verifire.rule.exact_size
+	url = git@github.com:Logicknots/verifire.rule.exact_size.git
+[submodule "rule/verifire.rule.min_area"]
+	path = rule/verifire.rule.min_area
+	url = git@github.com:Logicknots/verifire.rule.min_area.git
+[submodule "rule/verifire.rule.min_max_width"]
+	path = rule/verifire.rule.min_max_width
+	url = git@github.com:Logicknots/verifire.rule.min_max_width.git
+[submodule "rule/verifire.rule.notch_error"]
+	path = rule/verifire.rule.notch_error
+	url = git@github.com:Logicknots/verifire.rule.notch_error.git
+[submodule "rule/verifire.rule.off_grid"]
+	path = rule/verifire.rule.off_grid
+	url = git@github.com:Logicknots/verifire.rule.off_grid.git
+[submodule "rule/verifire.rule.spacing"]
+	path = rule/verifire.rule.spacing
+	url = git@github.com:Logicknots/verifire.rule.spacing.git
+[submodule "rule/verifire.rule.enclosure_poly"]
+	path = rule/verifire.rule.enclosure_poly
+	url = git@github.com:Logicknots/verifire.rule.enclosure_poly.git
+[submodule "lib/verifire.design_format"]
+	path = lib/verifire.design_format
+	url = git@github.com:Logicknots/verifire.design_format.git
+[submodule "rule/verifire.rule.filter"]
+	path = rule/verifire.rule.filter
+	url = git@github.com:Logicknots/verifire.rule.filter.git
+[submodule "rule/verifire.rule.extension"]
+	path = rule/verifire.rule.extension
+	url = git@github.com:Logicknots/verifire.rule.extension.git
+[submodule "rule/verifire.rule.density"]
+	path = rule/verifire.rule.density
+	url = git@github.com:Logicknots/verifire.rule.density.git
+[submodule "action/verifire.action.slice"]
+	path = action/verifire.action.slice
+	url = git@github.com:Logicknots/verifire.action.slice.git
+[submodule "rule/verifire.rule.slit_length"]
+	path = rule/verifire.rule.slit_length
+	url = git@github.com:Logicknots/verifire.rule.slit_length.git
+[submodule "rule/verifire.rule.lvs"]
+	path = rule/verifire.rule.lvs
+	url = git@github.com:Logicknots/verifire.rule.lvs.git

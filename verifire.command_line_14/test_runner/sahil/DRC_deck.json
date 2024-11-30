@@ -1,0 +1,820 @@
+{
+    "input": "slkn12131_cells.gds",
+    "output": "slkn12131_cells.rve",
+    "cell": "testing5",
+    "format": "rve",
+    "tasks": [
+        {
+            "viewport": {
+                "base": {
+                    "layer_number": 1,
+                    "datatype_number": 0
+                }
+            },
+            "algorithm": "min_width_dxy",
+            "value": 0.8,
+            "rule_type": "min_max_width"
+        },
+        {
+            "viewport_0": {
+                "base": {
+                    "layer_number": 1,
+                    "datatype_number": 0
+                }
+            },
+            "viewport_1": {
+                "base": {
+                    "layer_number": 1,
+                    "datatype_number": 0
+                }
+            },
+            "spacing": 0.8,
+            "direction": "dxy",
+            "rule_type": "spacing"
+        },
+        {
+            "viewport": {
+                "base": {
+                    "layer_number": 1,
+                    "datatype_number": 0
+                }
+            },
+            "min_area": 1.44,
+            "rule_type": "min_area"
+        },
+        {
+            "viewport": {
+                "base": {
+                    "layer_number": 2,
+                    "datatype_number": 0
+                }
+            },
+            "algorithm": "min_width_dxy",
+            "value": 0.8,
+            "rule_type": "min_max_width"
+        },
+        {
+            "viewport_0": {
+                "base": {
+                    "layer_number": 2,
+                    "datatype_number": 0
+                }
+            },
+            "viewport_1": {
+                "base": {
+                    "layer_number": 2,
+                    "datatype_number": 0
+                }
+            },
+            "spacing": 0.8,
+            "direction": "dxy",
+            "rule_type": "spacing"
+        },
+        {
+            "viewport": {
+                "base": {
+                    "layer_number": 2,
+                    "datatype_number": 0
+                }
+            },
+            "min_area": 1.44,
+            "rule_type": "min_area"
+        },
+        {
+            "viewport": {
+                "base": {
+                    "layer_number": 3,
+                    "datatype_number": 0
+                }
+            },
+            "algorithm": "min_width_dxy",
+            "value": 0.44,
+            "rule_type": "min_max_width"
+        },
+        {
+            "viewport_0": {
+                "base": {
+                    "layer_number": 3,
+                    "datatype_number": 0
+                }
+            },
+            "viewport_1": {
+                "base": {
+                    "layer_number": 3,
+                    "datatype_number": 0
+                }
+            },
+            "spacing": 0.4,
+            "direction": "dxy",
+            "rule_type": "spacing"
+        },
+        {
+            "viewport": {
+                "base": {
+                    "layer_number": 3,
+                    "datatype_number": 0
+                }
+            },
+            "min_area": 0.49,
+            "rule_type": "min_area"
+        },
+        {
+            "viewport": {
+                "base": {
+                    "layer_number": 4,
+                    "datatype_number": 0
+                }
+            },
+            "algorithm": "min_width_dxy",
+            "value": 0.44,
+            "rule_type": "min_max_width"
+        },
+        {
+            "viewport_0": {
+                "base": {
+                    "layer_number": 4,
+                    "datatype_number": 0
+                }
+            },
+            "viewport_1": {
+                "base": {
+                    "layer_number": 4,
+                    "datatype_number": 0
+                }
+            },
+            "spacing": 0.4,
+            "direction": "dxy",
+            "rule_type": "spacing"
+        },
+        {
+            "viewport": {
+                "base": {
+                    "layer_number": 4,
+                    "datatype_number": 0
+                }
+            },
+            "min_area": 0.49,
+            "rule_type": "min_area"
+        },
+        {
+            "viewport": {
+                "base": {
+                    "layer_number": 5,
+                    "datatype_number": 0
+                }
+            },
+            "algorithm": "min_width_dxy",
+            "value": 0.28,
+            "rule_type": "min_max_width"
+        },
+        {
+            "viewport_0": {
+                "base": {
+                    "layer_number": 5,
+                    "datatype_number": 0
+                }
+            },
+            "viewport_1": {
+                "base": {
+                    "layer_number": 5,
+                    "datatype_number": 0
+                }
+            },
+            "spacing": 0.28,
+            "direction": "dxy",
+            "rule_type": "spacing"
+        },
+        {
+            "viewport": {
+                "base": {
+                    "layer_number": 5,
+                    "datatype_number": 0
+                }
+            },
+            "min_area": 0.49,
+            "rule_type": "min_area"
+        },
+        {
+            "viewport": {
+                "base": {
+                    "layer_number": 6,
+                    "datatype_number": 0
+                }
+            },
+            "algorithm": "min_width_dxy",
+            "value": 0.18,
+            "rule_type": "min_max_width"
+        },
+        {
+            "viewport_0": {
+                "base": {
+                    "layer_number": 6,
+                    "datatype_number": 0
+                }
+            },
+            "viewport_1": {
+                "base": {
+                    "layer_number": 6,
+                    "datatype_number": 0
+                }
+            },
+            "spacing": 0.24,
+            "direction": "dxy",
+            "rule_type": "spacing"
+        },
+        {
+            "viewport": {
+                "base": {
+                    "layer_number": 6,
+                    "datatype_number": 0
+                }
+            },
+            "is_45_allowed": false,
+            "rule_type": "angle"
+        },
+        {
+            "poly": {
+                "base": {
+                    "layer_number": 6,
+                    "datatype_number": 0
+                }
+            },
+            "diffusion": {
+                "base": {
+                    "layer_number": 5,
+                    "datatype_number": 0
+                }
+            },
+            "value": 0.05,
+            "rule_type": "extension"
+        },
+        {
+            "viewport_0": {
+                "base": {
+                    "layer_number": 7,
+                    "datatype_number": 0
+                }
+            },
+            "viewport_1": {
+                "base": {
+                    "layer_number": 7,
+                    "datatype_number": 0
+                }
+            },
+            "spacing": 0.22,
+            "direction": "dxy",
+            "rule_type": "spacing"
+        },
+        {
+            "viewport": {
+                "base": {
+                    "layer_number": 7,
+                    "datatype_number": 0
+                }
+            },
+            "width": 0.22,
+            "height": 0.22,
+            "rule_type": "exact_size"
+        },
+        {
+            "viewport": {
+                "base": {
+                    "layer_number": 8,
+                    "datatype_number": 0
+                }
+            },
+            "algorithm": "min_width_dxy",
+            "value": 0.26,
+            "rule_type": "min_max_width"
+        },
+        {
+            "viewport_0": {
+                "base": {
+                    "layer_number": 8,
+                    "datatype_number": 0
+                }
+            },
+            "viewport_1": {
+                "base": {
+                    "layer_number": 8,
+                    "datatype_number": 0
+                }
+            },
+            "spacing": 0.26,
+            "direction": "dxy",
+            "rule_type": "spacing"
+        },
+        {
+            "viewport": {
+                "base": {
+                    "layer_number": 8,
+                    "datatype_number": 0
+                }
+            },
+            "min_area": 0.25,
+            "rule_type": "min_area"
+        },
+        {
+            "viewport_0": {
+                "base": {
+                    "layer_number": 9,
+                    "datatype_number": 0
+                }
+            },
+            "viewport_1": {
+                "base": {
+                    "layer_number": 9,
+                    "datatype_number": 0
+                }
+            },
+            "spacing": 0.24,
+            "direction": "dxy",
+            "rule_type": "spacing"
+        },
+        {
+            "viewport": {
+                "base": {
+                    "layer_number": 9,
+                    "datatype_number": 0
+                }
+            },
+            "width": 0.24,
+            "height": 0.24,
+            "rule_type": "exact_size"
+        },
+        {
+            "viewport": {
+                "base": {
+                    "layer_number": 10,
+                    "datatype_number": 0
+                }
+            },
+            "algorithm": "min_width_dxy",
+            "value": 0.28,
+            "rule_type": "min_max_width"
+        },
+        {
+            "viewport_0": {
+                "base": {
+                    "layer_number": 10,
+                    "datatype_number": 0
+                }
+            },
+            "viewport_1": {
+                "base": {
+                    "layer_number": 10,
+                    "datatype_number": 0
+                }
+            },
+            "spacing": 0.28,
+            "direction": "dxy",
+            "rule_type": "spacing"
+        },
+        {
+            "viewport": {
+                "base": {
+                    "layer_number": 10,
+                    "datatype_number": 0
+                }
+            },
+            "min_area": 0.25,
+            "rule_type": "min_area"
+        },
+        {
+            "viewport_0": {
+                "base": {
+                    "layer_number": 11,
+                    "datatype_number": 0
+                }
+            },
+            "viewport_1": {
+                "base": {
+                    "layer_number": 11,
+                    "datatype_number": 0
+                }
+            },
+            "spacing": 0.24,
+            "direction": "dxy",
+            "rule_type": "spacing"
+        },
+        {
+            "viewport": {
+                "base": {
+                    "layer_number": 11,
+                    "datatype_number": 0
+                }
+            },
+            "width": 0.26,
+            "height": 0.26,
+            "rule_type": "exact_size"
+        },
+        {
+            "viewport": {
+                "base": {
+                    "layer_number": 12,
+                    "datatype_number": 0
+                }
+            },
+            "algorithm": "min_width_dxy",
+            "value": 0.3,
+            "rule_type": "min_max_width"
+        },
+        {
+            "viewport_0": {
+                "base": {
+                    "layer_number": 12,
+                    "datatype_number": 0
+                }
+            },
+            "viewport_1": {
+                "base": {
+                    "layer_number": 12,
+                    "datatype_number": 0
+                }
+            },
+            "spacing": 0.3,
+            "direction": "dxy",
+            "rule_type": "spacing"
+        },
+        {
+            "viewport": {
+                "base": {
+                    "layer_number": 12,
+                    "datatype_number": 0
+                }
+            },
+            "min_area": 0.25,
+            "rule_type": "min_area"
+        },
+        {
+            "outer": {
+                "base": {
+                    "layer_number": 5,
+                    "datatype_number": 0
+                }
+            },
+            "rects": {
+                "base": {
+                    "layer_number": 7,
+                    "datatype_number": 0
+                }
+            },
+            "expression": "(left_0 && right_0) && (top_1 || bottom_1)",
+            "value_0": 0.08,
+            "value_1": 0.1,
+            "rule_type": "rect_enclosure"
+        },
+        {
+            "outer": {
+                "base": {
+                    "layer_number": 6,
+                    "datatype_number": 0
+                }
+            },
+            "rects": {
+                "base": {
+                    "layer_number": 7,
+                    "datatype_number": 0
+                }
+            },
+            "expression": "(left_0 && right_0) && (top_1 || bottom_1)",
+            "value_0": 0.08,
+            "value_1": 0.1,
+            "rule_type": "rect_enclosure"
+        },
+        {
+            "outer": {
+                "base": {
+                    "layer_number": 8,
+                    "datatype_number": 0
+                }
+            },
+            "rects": {
+                "base": {
+                    "layer_number": 7,
+                    "datatype_number": 0
+                }
+            },
+            "expression": "(left_0 && right_0) && (top_1 || bottom_1)",
+            "value_0": 0.08,
+            "value_1": 0.1,
+            "rule_type": "rect_enclosure"
+        },
+        {
+            "outer": {
+                "base": {
+                    "layer_number": 8,
+                    "datatype_number": 0
+                }
+            },
+            "rects": {
+                "base": {
+                    "layer_number": 9,
+                    "datatype_number": 0
+                }
+            },
+            "expression": "(left_0 && right_0) && (top_1 || bottom_1)",
+            "value_0": 0.08,
+            "value_1": 0.1,
+            "rule_type": "rect_enclosure"
+        },
+        {
+            "outer": {
+                "base": {
+                    "layer_number": 10,
+                    "datatype_number": 0
+                }
+            },
+            "rects": {
+                "base": {
+                    "layer_number": 9,
+                    "datatype_number": 0
+                }
+            },
+            "expression": "(left_0 && right_0) && (top_1 || bottom_1)",
+            "value_0": 0.08,
+            "value_1": 0.1,
+            "rule_type": "rect_enclosure"
+        },
+        {
+            "outer": {
+                "base": {
+                    "layer_number": 10,
+                    "datatype_number": 0
+                }
+            },
+            "rects": {
+                "base": {
+                    "layer_number": 11,
+                    "datatype_number": 0
+                }
+            },
+            "expression": "(left_0 && right_0) && (top_1 || bottom_1)",
+            "value_0": 0.08,
+            "value_1": 0.1,
+            "rule_type": "rect_enclosure"
+        },
+        {
+            "outer": {
+                "base": {
+                    "layer_number": 12,
+                    "datatype_number": 0
+                }
+            },
+            "rects": {
+                "base": {
+                    "layer_number": 11,
+                    "datatype_number": 0
+                }
+            },
+            "expression": "(left_0 && right_0) && (top_1 || bottom_1)",
+            "value_0": 0.08,
+            "value_1": 0.1,
+            "rule_type": "rect_enclosure"
+        },
+        {
+            "viewport_0": {
+                "base": {
+                    "layer_number": 1,
+                    "datatype_number": 0
+                }
+            },
+            "viewport_1": {
+                "base": {
+                    "layer_number": 5,
+                    "datatype_number": 0
+                },
+                "filters": {
+                    "areas": [
+                        {
+                            "layer": {
+                                "layer_number": 3,
+                                "datatype_number": 0
+                            },
+                            "operation": "intersection"
+                        },
+                        {
+                            "layer": {
+                                "layer_number": 1,
+                                "datatype_number": 0
+                            },
+                            "operation": "exclusion"
+                        }
+                    ]
+                }
+            },
+            "spacing": 0.8,
+            "direction": "dxy",
+            "rule_type": "spacing"
+        },
+        {
+            "viewport_0": {
+                "base": {
+                    "layer_number": 1,
+                    "datatype_number": 0
+                }
+            },
+            "viewport_1": {
+                "base": {
+                    "layer_number": 5,
+                    "datatype_number": 0
+                },
+                "filters": {
+                    "areas": [
+                        {
+                            "layer": {
+                                "layer_number": 4,
+                                "datatype_number": 0
+                            },
+                            "operation": "intersection"
+                        },
+                        {
+                            "layer": {
+                                "layer_number": 1,
+                                "datatype_number": 0
+                            },
+                            "operation": "exclusion"
+                        }
+                    ]
+                }
+            },
+            "spacing": 0.8,
+            "direction": "dxy",
+            "rule_type": "spacing"
+        },
+        {
+            "viewport_0": {
+                "base": {
+                    "layer_number": 2,
+                    "datatype_number": 0
+                }
+            },
+            "viewport_1": {
+                "base": {
+                    "layer_number": 5,
+                    "datatype_number": 0
+                },
+                "filters": {
+                    "areas": [
+                        {
+                            "layer": {
+                                "layer_number": 4,
+                                "datatype_number": 0
+                            },
+                            "operation": "intersection"
+                        },
+                        {
+                            "layer": {
+                                "layer_number": 2,
+                                "datatype_number": 0
+                            },
+                            "operation": "exclusion"
+                        }
+                    ]
+                }
+            },
+            "spacing": 0.8,
+            "direction": "dxy",
+            "rule_type": "spacing"
+        },
+        {
+            "viewport_0": {
+                "base": {
+                    "layer_number": 2,
+                    "datatype_number": 0
+                }
+            },
+            "viewport_1": {
+                "base": {
+                    "layer_number": 5,
+                    "datatype_number": 0
+                },
+                "filters": {
+                    "areas": [
+                        {
+                            "layer": {
+                                "layer_number": 3,
+                                "datatype_number": 0
+                            },
+                            "operation": "intersection"
+                        },
+                        {
+                            "layer": {
+                                "layer_number": 2,
+                                "datatype_number": 0
+                            },
+                            "operation": "exclusion"
+                        }
+                    ]
+                }
+            },
+            "spacing": 0.8,
+            "direction": "dxy",
+            "rule_type": "spacing"
+        },
+        {
+            "viewport_0": {
+                "base": {
+                    "layer_number": 3,
+                    "datatype_number": 0
+                }
+            },
+            "viewport_1": {
+                "base": {
+                    "layer_number": 5,
+                    "datatype_number": 0
+                },
+                "filters": {
+                    "areas": [
+                        {
+                            "layer": {
+                                "layer_number": 4,
+                                "datatype_number": 0
+                            },
+                            "operation": "intersection"
+                        },
+                        {
+                            "layer": {
+                                "layer_number": 1,
+                                "datatype_number": 0
+                            },
+                            "operation": "intersection"
+                        }
+                    ]
+                }
+            },
+            "spacing": 0.4,
+            "direction": "dxy",
+            "rule_type": "spacing"
+        },
+        {
+            "viewport_0": {
+                "base": {
+                    "layer_number": 4,
+                    "datatype_number": 0
+                }
+            },
+            "viewport_1": {
+                "base": {
+                    "layer_number": 5,
+                    "datatype_number": 0
+                },
+                "filters": {
+                    "areas": [
+                        {
+                            "layer": {
+                                "layer_number": 3,
+                                "datatype_number": 0
+                            },
+                            "operation": "intersection"
+                        },
+                        {
+                            "layer": {
+                                "layer_number": 1,
+                                "datatype_number": 0
+                            },
+                            "operation": "exclusion"
+                        }
+                    ]
+                }
+            },
+            "spacing": 0.4,
+            "direction": "dxy",
+            "rule_type": "spacing"
+        },
+        {
+            "viewport_0": {
+                "base": {
+                    "layer_number": 7,
+                    "datatype_number": 0
+                }
+            },
+            "viewport_1": {
+                "base": {
+                    "layer_number": 6,
+                    "datatype_number": 0
+                }
+            },
+            "spacing": 0.22,
+            "direction": "dxy",
+            "rule_type": "spacing"
+        },
+        {
+            "viewport_0": {
+                "base": {
+                    "layer_number": 7,
+                    "datatype_number": 0
+                }
+            },
+            "viewport_1": {
+                "base": {
+                    "layer_number": 5,
+                    "datatype_number": 0
+                }
+            },
+            "spacing": 0.22,
+            "direction": "dxy",
+            "rule_type": "spacing"
+        }
+    ]
+}

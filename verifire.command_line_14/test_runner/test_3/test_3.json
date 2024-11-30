@@ -1,0 +1,29 @@
+{
+    "input": "test_3.gds",
+    "output": "test_3.rve",
+    "cell": "MAIN",
+    "tasks": [
+        {
+            "rule_type": "spacing",
+            "viewport_0": {
+                "base": {
+                    "layer_number": 0,
+                    "datatype_number": 0
+                }
+            },
+            "spacing": 20.0,
+            "direction": "dxy"
+        },
+        {
+            "rule_type": "slice",
+            "viewport": {
+                "base": {
+                    "layer_number": 0,
+                    "datatype_number": 0
+                }
+            },
+            "orientation": "vertical",
+            "slice_type": "original"
+        }
+    ]
+}

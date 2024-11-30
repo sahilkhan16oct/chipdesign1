@@ -1,0 +1,88 @@
+{
+    "input": "command_line/test_runner/debug/lvs/test_0/invaA_SVT_def.gds",
+    "output": "command_line/test_runner/debug/lvs/test_0/invaA_SVT_def.rve",
+    "lvs_output": "command_line/test_runner/debug/lvs/test_0/invaA_SVT_def.lvs",
+    "cell": "invaA_SVT",
+    "tasks": [
+        {
+            "rule_type": "lvs",
+            "poly": {
+                "base": {
+                    "layer_number": 8,
+                    "datatype_number": 0
+                }
+            },
+            "diffusion": {
+                "base": {
+                    "layer_number": 9,
+                    "datatype_number": 0
+                }
+            },
+            "n_implant": {
+                "layer_number": 32,
+                "datatype_number": 0
+            },
+            "p_implant": {
+                "layer_number": 31,
+                "datatype_number": 0
+            },
+            "n_name": "VSS",
+            "p_name": "VDD",
+            "labels": [
+                [
+                    [63, 0], [42, 0]
+                ],
+                [
+                    [63, 0], [40, 0]
+                ]
+            ],
+            "layer_stack": [
+                [
+                    [9, 0], [34, 0], [40, 0], [41, 0], [42, 0]
+                ],
+                [
+                    [8, 0], [34, 0]
+                ]
+            ]
+        },
+        {
+            "rule_type": "connectivity",
+            "only_errors": false,
+            "filters": [
+                {
+                    "base": {
+                        "layer_number": 9,
+                        "datatype_number": 0
+                    },
+                    "filter": {
+                        "areas": [
+                            {
+                                "layer":{
+                                    "layer_number": 8,
+                                    "datatype_number": 0
+                                },
+                                "operation": "difference"
+                            }
+                        ]
+                    }
+                }
+            ],
+            "labels": [
+                [
+                    [63, 0], [42, 0]
+                ],
+                [
+                    [63, 0], [40, 0]
+                ]
+            ],
+            "layer_stack": [
+                [
+                    [9, 0], [34, 0], [40, 0], [41, 0], [42, 0]
+                ],
+                [
+                    [8, 0], [34, 0]
+                ]
+            ]
+        }
+    ]
+}

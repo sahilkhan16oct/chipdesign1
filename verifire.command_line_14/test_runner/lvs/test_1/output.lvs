@@ -1,0 +1,6 @@
+.SUBCKT invaA_SVT VH VL A Y 
+M0 VL A device_2 VSS NMOS w=1.2µ l=0.18µ 
+M1 device_2 A Y VSS NMOS w=1.2µ l=0.18µ 
+M2 VH A device_9 VDD PMOS w=1.2µ l=0.18µ 
+M3 device_9 A Y VDD PMOS w=1.2µ l=0.18µ 
+.ENDS

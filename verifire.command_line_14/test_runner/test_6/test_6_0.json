@@ -1,0 +1,42 @@
+{
+    "input": "test_6.gds",
+    "output": "test_6_0.rve",
+    "cell": "secrq2",
+    "tasks": [
+        {
+            "rule_type": "rect_enclosure",
+            "outer": {
+                "base": {
+                    "layer_number": 40,
+                    "datatype_number": 0
+                }
+            },
+            "rects": {
+                "base": {
+                    "layer_number": 34,
+                    "datatype_number": 0
+                }
+            },
+            "expression": "left_0 && right_0",
+            "value_0": 0.1
+        },
+        {
+            "rule_type": "rect_enclosure",
+            "outer": {
+                "base": {
+                    "layer_number": 40,
+                    "datatype_number": 0
+                }
+            },
+            "rects": {
+                "base": {
+                    "layer_number": 34,
+                    "datatype_number": 0
+                }
+            },
+            "expression": "(left_0 && right_0) && (top_1 || bottom_1)",
+            "value_0": 0.1,
+            "value_1": 10
+        }
+    ]
+}

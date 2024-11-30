@@ -1,0 +1,25 @@
+[package]
+name = "rule_runner"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+
+foundation = { path = "../verifire.lib.foundation" }
+
+angle = { path = "../../rule/verifire.rule.angle" }
+density = { path = "../../rule/verifire.rule.density" }
+enclosure_rect = { path = "../../rule/verifire.rule.enclosure_rect" }
+enclosure_poly = { path = "../../rule/verifire.rule.enclosure_poly" }
+exact_size = { path = "../../rule/verifire.rule.exact_size" }
+extension = { path = "../../rule/verifire.rule.extension" }
+filter = { path = "../../rule/verifire.rule.filter" }
+lvs = { path = "../../rule/verifire.rule.lvs" }
+min_area = { path = "../../rule/verifire.rule.min_area" }
+min_max_width = { path = "../../rule/verifire.rule.min_max_width" }
+notch_error = { path = "../../rule/verifire.rule.notch_error" }
+off_grid = { path = "../../rule/verifire.rule.off_grid" }
+slit_length = { path = "../../rule/verifire.rule.slit_length" }
+spacing = { path = "../../rule/verifire.rule.spacing" }
+
+tokio = "^1.38.0"

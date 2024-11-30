@@ -1,0 +1,17 @@
+{
+    "input": "viewport.gds",
+    "output": "test_0.rve",
+    "cell": "MAIN",
+    "tasks": [
+        {
+            "rule_type": "min_area",
+            "viewport": {
+                "base": {
+                    "layer_number": 2,
+                    "datatype_number": 0
+                }
+            },
+            "min_area": 100
+        }
+    ]
+}
