@@ -15,13 +15,13 @@ def convert_json_to_gds(json_file_path, output_gds_path):
     for cells in data['layout_data']['cells']:
         cell_ref = gdstk.Cell(cells['cell_name'])
         lib.add(cell_ref)
-        print(cells)
+        # print(cells)
 
         cell_list.append(cells['cell_name'])
         instance[cell_ref] = []
 
         for props in cells['properties']:
-            if props['type'] == 'Rectangle':
+            if props['type'] == 'Polygon':
                 if 'coordinates' in props and len(props['coordinates']) > 0:
                     cell_ref.add(gdstk.Polygon(tuple(map(tuple, props['coordinates'])), layer=int(props['layer_number']), datatype=int(props['datatype_number'])))
                 else:

@@ -10,6 +10,7 @@ from io import BytesIO
 import tempfile
 from auth import auth_bp
 from layer_routes import layer_bp
+from DRc import drc_bp
 from flask_jwt_extended import JWTManager
 from time import sleep
 
@@ -31,6 +32,8 @@ def home():
 app.register_blueprint(auth_bp, url_prefix='/auth')
 
 app.register_blueprint(layer_bp,url_prefix='/layers')
+
+app.register_blueprint(drc_bp,url_prefix='/drc')
 
 # Path to the layer map file
 LAYERS_FILE_PATH = 'layermap.json'
@@ -114,7 +117,7 @@ else:  # Linux and other systems
 
 @app.route('/convert-and-save-gds', methods=['POST'])
 def convert_and_save_gds():
-        sleep(60)
+    
         data = request.json
         json_content = data.get('json_content', '')
         project_name = data.get('project_name', '')

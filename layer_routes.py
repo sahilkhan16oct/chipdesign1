@@ -41,7 +41,7 @@ def get_layermap_url(username):
 # Define the routes
 @layer_bp.route('/user/layers', methods=['GET'])
 @jwt_required()
-@subscription_required("icurate")
+# @subscription_required("icurate")
 def get_user_layers():
     username = get_jwt_identity() 
     print(username) # Get the username from JWT
@@ -55,7 +55,7 @@ def get_user_layers():
 
 @layer_bp.route('/user/layers', methods=['POST'])
 @jwt_required()
-@subscription_required("icurate")
+# @subscription_required("icurate")
 def save_user_all_layers():
     username = get_jwt_identity()  # Get the username from JWT
     layermap_url = get_layermap_url(username)  # Fetch layermap URL from DB
@@ -69,7 +69,7 @@ def save_user_all_layers():
 
 @layer_bp.route('/user/layers/update', methods=['PUT'])
 @jwt_required()
-@subscription_required("icurate")
+# @subscription_required("icurate")
 def update_user_layer():
     username = get_jwt_identity()  # Get the username from JWT
     layermap_url = get_layermap_url(username)  # Fetch layermap URL from DB
@@ -90,7 +90,7 @@ def update_user_layer():
 
 @layer_bp.route('/user/layers/delete', methods=['DELETE'])
 @jwt_required()
-@subscription_required("icurate")
+# @subscription_required("icurate")
 def delete_user_layer():
     username = get_jwt_identity()  # Get the username from JWT
     layermap_url = get_layermap_url(username)  # Fetch layermap URL from DB
@@ -114,6 +114,6 @@ def delete_user_layer():
 
 @layer_bp.route('/prelimlef', methods=['GET'])
 @jwt_required()
-@subscription_required("prelimlef")
+# @subscription_required("prelimlef")
 def prelimlef():
     return jsonify({"message": "This is the route for prelimlef"}), 200

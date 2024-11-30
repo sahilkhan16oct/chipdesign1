@@ -9,8 +9,8 @@ import random
 import smtplib
 from email.mime.text import MIMEText
 from functools import wraps
-from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
-from flask_jwt_extended import jwt_required, get_jwt
+from flask_jwt_extended import create_access_token, jwt_required , get_jwt
+
 
 load_dotenv()
 
@@ -155,31 +155,44 @@ def signup():
         "username": username,
         "email": email,
         "password": hashed_password,
-        "is_verified": False,
+        "is_verified": True,
+        "counter":20,
         "occupation": "student",
         "subscription": {
-        "prelimlef": {
-            "active": False,
-            "startDate": None,
-            "endDate": None
-        },
-        "icurate": {
-            "active": True,
-            "startDate": start_date,
-            "endDate": end_date
-        },
-        "mentorme": {
-            "active": False,
-            "startDate": None,
-            "endDate": None
-        }
-    } 
+            "prelimlef": {
+                "active": False,
+                "startDate": None,
+                "endDate": None
+            },
+            "icurate": {
+                "active": True,
+                "startDate": start_date,
+                "endDate": end_date
+            },
+            "mentorme": {
+                "active": False,
+                "startDate": None,
+                "endDate": None
+            }
+         },
+
+    })
+
+    # Create a separate layermap file for the authenticated user
+    new_layermap_file = f"{LAYERS_DIR}/{username}_layermap.json"
+    shutil.copyfile(BASE_LAYERS_FILE, new_layermap_file)
+
+    # Insert the layermap entry into the `layermap` collection
+    layermap_collection.insert_one({
+        "username": username,
+        "layermap_url": new_layermap_file,
+        
     })
 
     # Generate and send OTP
-    otp = generate_otp()
-    users_collection.update_one({"username": username}, {"$set": {"otp": otp, "otp_timestamp": time.time()}})
-    send_email(email, otp)
+    # otp = generate_otp()
+    # users_collection.update_one({"username": username}, {"$set": {"otp": otp, "otp_timestamp": time.time()}})
+    # send_email(email, otp)
 
     return jsonify({"message": "User created successfully, OTP sent to email"}), 201
 
@@ -192,35 +205,36 @@ def login():
     user = users_collection.find_one({"username": username})
 
     if user and check_password_hash(user['password'], password):
-        if not user.get('is_verified'):
-            return jsonify({"message": "Account not verified. Please verify your email."}), 403
+        # if not user.get('is_verified'):
+        #     return jsonify({"message": "Account not verified. Please verify your email."}), 403
 
-        # Har subscription ka status aur dates nikaalna
-        subscription = user.get("subscription", {})
+        # # Har subscription ka status aur dates nikaalna
+        # subscription = user.get("subscription", {})
        
-        # Simplify JWT claims structure
-        subscriptions_claims = {
-            "username": username,
-            "prelimlef": {
-                "active": subscription.get("prelimlef", {}).get("active", False),
-                "startDate": subscription.get("prelimlef", {}).get("startDate", ""),
-                "endDate": subscription.get("prelimlef", {}).get("endDate", "")
-            },
-            "icurate": {
-                "active": subscription.get("icurate", {}).get("active", False),
-                "startDate": subscription.get("icurate", {}).get("startDate", ""),
-                "endDate": subscription.get("icurate", {}).get("endDate", "")
-            },
-            "mentorme": {
-                "active": subscription.get("mentorme", {}).get("active", False),
-                "startDate": subscription.get("mentorme", {}).get("startDate", ""),
-                "endDate": subscription.get("mentorme", {}).get("endDate", "")
-            },
+        # # Simplify JWT claims structure
+        # subscriptions_claims = {
+        #     "username": username,
+        #     "prelimlef": {
+        #         "active": subscription.get("prelimlef", {}).get("active", False),
+        #         "startDate": subscription.get("prelimlef", {}).get("startDate", ""),
+        #         "endDate": subscription.get("prelimlef", {}).get("endDate", "")
+        #     },
+        #     "icurate": {
+        #         "active": subscription.get("icurate", {}).get("active", False),
+        #         "startDate": subscription.get("icurate", {}).get("startDate", ""),
+        #         "endDate": subscription.get("icurate", {}).get("endDate", "")
+        #     },
+        #     "mentorme": {
+        #         "active": subscription.get("mentorme", {}).get("active", False),
+        #         "startDate": subscription.get("mentorme", {}).get("startDate", ""),
+        #         "endDate": subscription.get("mentorme", {}).get("endDate", "")
+        #     },
             
-        }
+        # }
 
         # Create JWT token with additional claims
-        access_token = create_access_token(identity=username, additional_claims=subscriptions_claims)
+        # access_token = create_access_token(identity=username, additional_claims=subscriptions_claims)
+        access_token = create_access_token(identity=username)
         return jsonify(access_token=access_token, message="Login successful"), 200
     else:
         return jsonify({"message": "Invalid credentials"}), 401
