@@ -7,7 +7,7 @@ import subprocess
 import tempfile
 from jsonToGds import convert_json_to_gds
 import os
-import time
+
 # Initialize MongoDB client
 mongo_uri = f"mongodb+srv://innoveotech:{os.getenv('DB_PASSWORD')}@azeem.af86m.mongodb.net/chipdesign1?retryWrites=true&w=majority"
 client = MongoClient(mongo_uri)
@@ -59,7 +59,7 @@ def generate_gds():
         test_file_path = os.path.join(app_base_dir, 'verifire.command_line_14', 'test_runner', 'sahil', 'DRC_deck.json')
         output_gds_path = os.path.join(app_base_dir, 'verifire.command_line_14', 'test_runner', 'sahil', f'{username}_cells.gds')  # Use username for GDS filename
         run_sh_path = os.path.join(app_base_dir, 'verifire.command_line_14', 'test_runner', 'sahil', 'run.sh')
-        output_file_path = os.path.join(app_base_dir, 'verifire.command_line_14', 'test_runner', 'sahil', f'{username}_test_out.json')  # Use username for output file
+        rve_output_path = os.path.join(app_base_dir, 'verifire.command_line_14', 'test_runner', 'sahil', f'{username}_cells.rve')  # RVE file path
 
         # Read and process the test_0.json file
         with open(test_file_path, 'r') as test_file:
@@ -105,10 +105,19 @@ def generate_gds():
         print("Highlight_DRC.py stdout:", result.stdout.decode())
         print("Highlight_DRC.py stderr:", result.stderr.decode())
 
-        time.sleep(0.01)
+        
         gds_output_path = os.path.join(app_base_dir, 'verifire.command_line_14', 'test_runner', 'sahil', f"{username}_DRC_GDS.gds")
         if os.path.exists(gds_output_path):
-            return send_file(gds_output_path, as_attachment=True)
+            # Send the generated GDS file to the user
+            response = send_file(gds_output_path, as_attachment=True)
+            
+            # Cleanup the files after sending
+            os.remove(gds_output_path)
+            os.remove(output_gds_path)
+            os.remove(rve_output_path)
+            os.remove(temp_json.name)
+
+            return response
         else:
             return jsonify({"error": "DRC GDS generation failed"}), 500
 
