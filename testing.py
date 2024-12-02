@@ -32,11 +32,11 @@ def register_users_one_by_one(file_path):
     for index, row in df.iterrows():
         # username = row['c_id']
         email = row['email']
-        username = email.split('@')[0]
+        # username = email.split('@')[0]
 
         # Check if the user already exists
-        if users_collection.find_one({"username": username}):
-            print(f"User {username} already exists. Skipping...")
+        if users_collection.find_one({"username": email}):
+            print(f"User {email} already exists. Skipping...")
             df.at[index, 'status'] = 'Already Exists'
             continue
 
@@ -44,34 +44,34 @@ def register_users_one_by_one(file_path):
         password = generate_password()
         hashed_password = generate_password_hash(password)
 
-        print("ID:", username)
+        print("ID:", email)
         print("Generated Password:", password)
         print("Hashed Password:", hashed_password)
         
         # Insert user into the database
         user_entry = {
-            "username": username,
+            "username": email,
             "email": email,
             "password": hashed_password,
             "counter": 25
         }
         users_collection.insert_one(user_entry)
-        print(f"Inserted user: {username}")
+        print(f"Inserted user: {email}")
         
         # Create a layermap file for the user
-        new_layermap_file = f"{LAYERS_DIR}/{username}_layermap.json"
+        new_layermap_file = f"{LAYERS_DIR}/{email}_layermap.json"
         shutil.copyfile(BASE_LAYERS_FILE, new_layermap_file)
         
         # Insert the layermap entry into the `layermap` collection
         layermap_entry = {
-            "username": username,
+            "username": email,
             "layermap_url": new_layermap_file,
         }
         layermap_collection.insert_one(layermap_entry)
-        print(f"Created layermap for user: {username}")
+        print(f"Created layermap for user: {email}")
         
         # Update the current row in the Excel file
-        df.at[index, 'username'] = username  
+        df.at[index, 'username'] = email  
         df.at[index, 'password'] = password  # Save plain password for reference
         df.at[index, 'status'] = 'Inserted'
 
