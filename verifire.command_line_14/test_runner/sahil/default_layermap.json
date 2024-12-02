@@ -1,1030 +1,725 @@
 {
-    "layers": [
-        {
-            "color": "#e45401",
-            "datatype_name": "drawing",
-            "datatype_number": "0",
-            "editable": true,
-            "layer_name": "NW",
-            "layer_number": "1",
-            "outline": {
-                "type": "solid",
-                "width": "2px"
-            },
-            "pattern": {
-                "opacity": 0.87,
-                "type": "horizontal_lines"
-            },
-            "pixelate": 0
-        },
-        {
-            "color": "#e2da83",
-            "contrast": 100,
-            "datatype_name": "drawing",
-            "datatype_number": "0",
-            "editable": true,
-            "layer_name": "PW",
-            "layer_number": "2",
-            "outline": {
-                "type": "solid",
-                "width": "2px"
-            },
-            "pattern": {
-                "opacity": 1,
-                "type": "diagonal_lines"
-            }
-        },
-        {
-            "color": "#54D32A",
-            "datatype_name": "drawing",
-            "datatype_number": "0",
-            "editable": true,
-            "layer_name": "NP",
-            "layer_number": "3",
-            "outline": {
-                "type": "solid",
-                "width": "2px"
-            },
-            "pattern": {
-                "opacity": 0.9,
-                "type": "vertical_lines"
-            }
-        },
-        {
-            "color": "#99BBBB",
-            "datatype_name": "drawing",
-            "datatype_number": "0",
-            "editable": true,
-            "layer_name": "PP",
-            "layer_number": "4",
-            "outline": {
-                "type": "solid",
-                "width": "2px"
-            },
-            "pattern": {
-                "opacity": 0.99,
-                "type": "dotted"
-            }
-        },
-        {
-            "color": "#D12DBF",
-            "datatype_name": "drawing",
-            "datatype_number": "0",
-            "editable": true,
-            "layer_name": "Diff",
-            "layer_number": "5",
-            "outline": {
-                "type": "solid",
-                "width": "2px"
-            },
-            "pattern": {
-                "opacity": 1,
-                "type": "cross"
-            }
-        },
-        {
-            "color": "#1E0A9B",
-            "datatype_name": "drawing",
-            "datatype_number": "0",
-            "editable": true,
-            "layer_name": "Poly",
-            "layer_number": "6",
-            "outline": {
-                "type": "solid",
-                "width": "2px"
-            },
-            "pattern": {
-                "opacity": 1,
-                "type": "empty_fill"
-            }
-        },
-        {
-            "color": "#CEEA41",
-            "datatype_name": "drawing",
-            "datatype_number": "0",
-            "editable": true,
-            "layer_name": "CA",
-            "layer_number": "7",
-            "outline": {
-                "type": "solid",
-                "width": "2px"
-            },
-            "pattern": {
-                "opacity": 0.5,
-                "type": "empty_fill"
-            }
-        },
-        {
-            "color": "#6F7814",
-            "datatype_name": "obstruction",
-            "datatype_number": "4",
-            "editable": true,
-            "layer_name": "CA",
-            "layer_number": "7",
-            "outline": {
-                "type": "solid",
-                "width": "2px"
-            },
-            "pattern": {
-                "opacity": 0.5,
-                "type": "horizontal_lines"
-            }
-        },
-        {
-            "color": "#92E98A",
-            "datatype_name": "drawing",
-            "datatype_number": "0",
-            "editable": true,
-            "layer_name": "CB",
-            "layer_number": "8",
-            "outline": {
-                "type": "solid",
-                "width": "2px"
-            },
-            "pattern": {
-                "opacity": 1,
-                "type": "dotted"
-            }
-        },
-        {
-            "color": "#2188A7",
-            "datatype_name": "obstruction",
-            "datatype_number": "4",
-            "editable": true,
-            "layer_name": "CB",
-            "layer_number": "8",
-            "outline": {
-                "type": "solid",
-                "width": "2px"
-            },
-            "pattern": {
-                "opacity": 0.5,
-                "type": "diagonal_lines"
-            }
-        },
-        {
-            "color": "#5648A7",
-            "datatype_name": "drawing",
-            "datatype_number": "0",
-            "editable": true,
-            "layer_name": "M0",
-            "layer_number": "9",
-            "outline": {
-                "type": "solid",
-                "width": "2px"
-            },
-            "pattern": {
-                "opacity": 1,
-                "type": "dotted"
-            }
-        },
-        {
-            "color": "#96B19E",
-            "datatype_name": "drawingA",
-            "datatype_number": "1",
-            "editable": true,
-            "layer_name": "M0",
-            "layer_number": "9",
-            "outline": {
-                "type": "solid",
-                "width": "2px"
-            },
-            "pattern": {
-                "opacity": 0.5,
-                "type": "empty_fill"
-            }
-        },
-        {
-            "color": "#130F70",
-            "datatype_name": "drawingB",
-            "datatype_number": "2",
-            "editable": true,
-            "layer_name": "M0",
-            "layer_number": "9",
-            "outline": {
-                "type": "solid",
-                "width": "2px"
-            },
-            "pattern": {
-                "opacity": 0.5,
-                "type": "diagonal_lines"
-            }
-        },
-        {
-            "color": "#D770FC",
-            "datatype_name": "pin",
-            "datatype_number": "3",
-            "editable": true,
-            "layer_name": "M0",
-            "layer_number": "9",
-            "outline": {
-                "type": "solid",
-                "width": "2px"
-            },
-            "pattern": {
-                "opacity": 0.5,
-                "type": "empty_fill"
-            }
-        },
-        {
-            "color": "#3CC396",
-            "datatype_name": "obstruction",
-            "datatype_number": "4",
-            "editable": true,
-            "layer_name": "M0",
-            "layer_number": "9",
-            "outline": {
-                "type": "solid",
-                "width": "2px"
-            },
-            "pattern": {
-                "opacity": 0.5,
-                "type": "empty_fill"
-            }
-        },
-        {
-            "color": "#884048",
-            "datatype_name": "fill",
-            "datatype_number": "5",
-            "editable": true,
-            "layer_name": "M0",
-            "layer_number": "9",
-            "outline": {
-                "type": "solid",
-                "width": "2px"
-            },
-            "pattern": {
-                "opacity": 0.5,
-                "type": "cross"
-            }
-        },
-        {
-            "color": "#63EA88",
-            "datatype_name": "drawing",
-            "datatype_number": "0",
-            "editable": true,
-            "layer_name": "M1",
-            "layer_number": "11",
-            "outline": {
-                "type": "solid",
-                "width": "2px"
-            },
-            "pattern": {
-                "opacity": 0.5,
-                "type": "vertical_lines"
-            }
-        },
-        {
-            "color": "#573BD0",
-            "datatype_name": "drawingA",
-            "datatype_number": "1",
-            "editable": true,
-            "layer_name": "M1",
-            "layer_number": "11",
-            "outline": {
-                "type": "solid",
-                "width": "2px"
-            },
-            "pattern": {
-                "opacity": 0.5,
-                "type": "horizontal_lines"
-            }
-        },
-        {
-            "color": "#5B7AE3",
-            "datatype_name": "drawingB",
-            "datatype_number": "2",
-            "editable": true,
-            "layer_name": "M1",
-            "layer_number": "11",
-            "outline": {
-                "type": "solid",
-                "width": "2px"
-            },
-            "pattern": {
-                "opacity": 0.5,
-                "type": "dotted"
-            }
-        },
-        {
-            "color": "#530A87",
-            "datatype_name": "pin",
-            "datatype_number": "3",
-            "editable": true,
-            "layer_name": "M1",
-            "layer_number": "11",
-            "outline": {
-                "type": "solid",
-                "width": "2px"
-            },
-            "pattern": {
-                "opacity": 0.5,
-                "type": "diagonal_lines"
-            }
-        },
-        {
-            "color": "#42A5F0",
-            "datatype_name": "obstruction",
-            "datatype_number": "4",
-            "editable": true,
-            "layer_name": "M1",
-            "layer_number": "11",
-            "outline": {
-                "type": "solid",
-                "width": "2px"
-            },
-            "pattern": {
-                "opacity": 0.5,
-                "type": "diagonal_lines"
-            }
-        },
-        {
-            "color": "#FFEBE9",
-            "datatype_name": "fill",
-            "datatype_number": "5",
-            "editable": true,
-            "layer_name": "M1",
-            "layer_number": "11",
-            "outline": {
-                "type": "solid",
-                "width": "2px"
-            },
-            "pattern": {
-                "opacity": 0.5,
-                "type": "dotted"
-            }
-        },
-        {
-            "color": "#8762F5",
-            "datatype_name": "drawing",
-            "datatype_number": "0",
-            "editable": true,
-            "layer_name": "M2",
-            "layer_number": "13",
-            "outline": {
-                "type": "solid",
-                "width": "2px"
-            },
-            "pattern": {
-                "opacity": 0.5,
-                "type": "empty_fill"
-            }
-        },
-        {
-            "color": "#FE529F",
-            "datatype_name": "drawingA",
-            "datatype_number": "1",
-            "editable": true,
-            "layer_name": "M2",
-            "layer_number": "13",
-            "outline": {
-                "type": "solid",
-                "width": "2px"
-            },
-            "pattern": {
-                "opacity": 0.5,
-                "type": "empty_fill"
-            }
-        },
-        {
-            "color": "#6F2ED7",
-            "datatype_name": "drawingB",
-            "datatype_number": "2",
-            "editable": true,
-            "layer_name": "M2",
-            "layer_number": "13",
-            "outline": {
-                "type": "solid",
-                "width": "2px"
-            },
-            "pattern": {
-                "opacity": 0.5,
-                "type": "vertical_lines"
-            }
-        },
-        {
-            "color": "#C1B750",
-            "datatype_name": "pin",
-            "datatype_number": "3",
-            "editable": true,
-            "layer_name": "M2",
-            "layer_number": "13",
-            "outline": {
-                "type": "solid",
-                "width": "2px"
-            },
-            "pattern": {
-                "opacity": 0.5,
-                "type": "cross"
-            }
-        },
-        {
-            "color": "#4C08D0",
-            "datatype_name": "obstruction",
-            "datatype_number": "4",
-            "editable": true,
-            "layer_name": "M2",
-            "layer_number": "13",
-            "outline": {
-                "type": "solid",
-                "width": "2px"
-            },
-            "pattern": {
-                "opacity": 0.5,
-                "type": "rev_diagonal_lines"
-            }
-        },
-        {
-            "color": "#9BF427",
-            "datatype_name": "fill",
-            "datatype_number": "5",
-            "editable": true,
-            "layer_name": "M2",
-            "layer_number": "13",
-            "outline": {
-                "type": "solid",
-                "width": "2px"
-            },
-            "pattern": {
-                "opacity": 0.5,
-                "type": "empty_fill"
-            }
-        },
-        {
-            "color": "#C718EB",
-            "datatype_name": "drawing",
-            "datatype_number": "0",
-            "editable": true,
-            "layer_name": "M3",
-            "layer_number": "15",
-            "outline": {
-                "type": "solid",
-                "width": "2px"
-            },
-            "pattern": {
-                "opacity": 0.5,
-                "type": "diagonal_lines"
-            }
-        },
-        {
-            "color": "#763AD2",
-            "datatype_name": "pin",
-            "datatype_number": "3",
-            "editable": true,
-            "layer_name": "M3",
-            "layer_number": "15",
-            "outline": {
-                "type": "solid",
-                "width": "2px"
-            },
-            "pattern": {
-                "opacity": 0.5,
-                "type": "horizontal_lines"
-            }
-        },
-        {
-            "color": "#F83A8F",
-            "datatype_name": "obstruction",
-            "datatype_number": "4",
-            "editable": true,
-            "layer_name": "M3",
-            "layer_number": "15",
-            "outline": {
-                "type": "solid",
-                "width": "2px"
-            },
-            "pattern": {
-                "opacity": 0.5,
-                "type": "rev_diagonal_lines"
-            }
-        },
-        {
-            "color": "#BB55F3",
-            "datatype_name": "fill",
-            "datatype_number": "5",
-            "editable": true,
-            "layer_name": "M3",
-            "layer_number": "15",
-            "outline": {
-                "type": "solid",
-                "width": "2px"
-            },
-            "pattern": {
-                "opacity": 0.5,
-                "type": "vertical_lines"
-            }
-        },
-        {
-            "color": "#41B2D3",
-            "datatype_name": "drawing",
-            "datatype_number": "0",
-            "editable": true,
-            "layer_name": "M4",
-            "layer_number": "17",
-            "outline": {
-                "type": "solid",
-                "width": "2px"
-            },
-            "pattern": {
-                "opacity": 0.5,
-                "type": "horizontal_lines"
-            }
-        },
-        {
-            "color": "#FBA6B0",
-            "datatype_name": "pin",
-            "datatype_number": "3",
-            "editable": true,
-            "layer_name": "M4",
-            "layer_number": "17",
-            "outline": {
-                "type": "solid",
-                "width": "2px"
-            },
-            "pattern": {
-                "opacity": 0.5,
-                "type": "vertical_lines"
-            }
-        },
-        {
-            "color": "#C18A57",
-            "datatype_name": "obstruction",
-            "datatype_number": "4",
-            "editable": true,
-            "layer_name": "M4",
-            "layer_number": "17",
-            "outline": {
-                "type": "solid",
-                "width": "2px"
-            },
-            "pattern": {
-                "opacity": 0.5,
-                "type": "rev_diagonal_lines"
-            }
-        },
-        {
-            "color": "#EEBC41",
-            "datatype_name": "fill",
-            "datatype_number": "5",
-            "editable": true,
-            "layer_name": "M4",
-            "layer_number": "17",
-            "outline": {
-                "type": "solid",
-                "width": "2px"
-            },
-            "pattern": {
-                "opacity": 0.5,
-                "type": "diagonal_lines"
-            }
-        },
-        {
-            "color": "#736C82",
-            "datatype_name": "drawing",
-            "datatype_number": "0",
-            "editable": true,
-            "layer_name": "M5",
-            "layer_number": "19",
-            "outline": {
-                "type": "solid",
-                "width": "2px"
-            },
-            "pattern": {
-                "opacity": 0.5,
-                "type": "rev_diagonal_lines"
-            }
-        },
-        {
-            "color": "#382A9E",
-            "datatype_name": "pin",
-            "datatype_number": "3",
-            "editable": true,
-            "layer_name": "M5",
-            "layer_number": "19",
-            "outline": {
-                "type": "solid",
-                "width": "2px"
-            },
-            "pattern": {
-                "opacity": 0.5,
-                "type": "vertical_lines"
-            }
-        },
-        {
-            "color": "#E9E1A8",
-            "datatype_name": "obstruction",
-            "datatype_number": "4",
-            "editable": true,
-            "layer_name": "M5",
-            "layer_number": "19",
-            "outline": {
-                "type": "solid",
-                "width": "2px"
-            },
-            "pattern": {
-                "opacity": 0.5,
-                "type": "rev_diagonal_lines"
-            }
-        },
-        {
-            "color": "#090967",
-            "datatype_name": "fill",
-            "datatype_number": "5",
-            "editable": true,
-            "layer_name": "M5",
-            "layer_number": "19",
-            "outline": {
-                "type": "solid",
-                "width": "2px"
-            },
-            "pattern": {
-                "opacity": 0.5,
-                "type": "rev_diagonal_lines"
-            }
-        },
-        {
-            "color": "#6DF36F",
-            "datatype_name": "drawing",
-            "datatype_number": "0",
-            "editable": true,
-            "layer_name": "V1",
-            "layer_number": "10",
-            "outline": {
-                "type": "solid",
-                "width": "2px"
-            },
-            "pattern": {
-                "opacity": 0.5,
-                "type": "empty_fill"
-            }
-        },
-        {
-            "color": "#DA4EC3",
-            "datatype_name": "obstruction",
-            "datatype_number": "4",
-            "editable": true,
-            "layer_name": "V1",
-            "layer_number": "10",
-            "outline": {
-                "type": "solid",
-                "width": "2px"
-            },
-            "pattern": {
-                "opacity": 0.5,
-                "type": "dotted"
-            }
-        },
-        {
-            "color": "#B1CF9B",
-            "datatype_name": "drawing",
-            "datatype_number": "0",
-            "editable": true,
-            "layer_name": "V2",
-            "layer_number": "12",
-            "outline": {
-                "type": "solid",
-                "width": "2px"
-            },
-            "pattern": {
-                "opacity": 0.5,
-                "type": "cross"
-            }
-        },
-        {
-            "color": "#23081B",
-            "datatype_name": "obstruction",
-            "datatype_number": "4",
-            "editable": true,
-            "layer_name": "V2",
-            "layer_number": "12",
-            "outline": {
-                "type": "solid",
-                "width": "2px"
-            },
-            "pattern": {
-                "opacity": 0.5,
-                "type": "cross"
-            }
-        },
-        {
-            "color": "#8A8BB3",
-            "datatype_name": "drawing",
-            "datatype_number": "0",
-            "editable": true,
-            "layer_name": "V3",
-            "layer_number": "14",
-            "outline": {
-                "type": "solid",
-                "width": "2px"
-            },
-            "pattern": {
-                "opacity": 0.5,
-                "type": "horizontal_lines"
-            }
-        },
-        {
-            "color": "#BC37C5",
-            "datatype_name": "obstruction",
-            "datatype_number": "4",
-            "editable": true,
-            "layer_name": "V3",
-            "layer_number": "14",
-            "outline": {
-                "type": "solid",
-                "width": "2px"
-            },
-            "pattern": {
-                "opacity": 0.5,
-                "type": "horizontal_lines"
-            }
-        },
-        {
-            "color": "#AC534B",
-            "datatype_name": "drawing",
-            "datatype_number": "0",
-            "editable": true,
-            "layer_name": "V4",
-            "layer_number": "16",
-            "outline": {
-                "type": "solid",
-                "width": "2px"
-            },
-            "pattern": {
-                "opacity": 0.5,
-                "type": "vertical_lines"
-            }
-        },
-        {
-            "color": "#3F88CB",
-            "datatype_name": "obstruction",
-            "datatype_number": "4",
-            "editable": true,
-            "layer_name": "V4",
-            "layer_number": "16",
-            "outline": {
-                "type": "solid",
-                "width": "2px"
-            },
-            "pattern": {
-                "opacity": 0.5,
-                "type": "cross"
-            }
-        },
-        {
-            "color": "#4EAA1C",
-            "datatype_name": "drawing",
-            "datatype_number": "0",
-            "editable": true,
-            "layer_name": "V5",
-            "layer_number": "18",
-            "outline": {
-                "type": "solid",
-                "width": "2px"
-            },
-            "pattern": {
-                "opacity": 0.5,
-                "type": "empty_fill"
-            }
-        },
-        {
-            "color": "#29ED9A",
-            "datatype_name": "obstruction",
-            "datatype_number": "4",
-            "editable": true,
-            "layer_name": "V5",
-            "layer_number": "18",
-            "outline": {
-                "type": "solid",
-                "width": "2px"
-            },
-            "pattern": {
-                "opacity": 0.5,
-                "type": "cross"
-            }
-        },
-        {
-            "color": "#AE3240",
-            "datatype_name": "drawing",
-            "datatype_number": "0",
-            "editable": true,
-            "layer_name": "Fin",
-            "layer_number": "31",
-            "outline": {
-                "type": "solid",
-                "width": "2px"
-            },
-            "pattern": {
-                "opacity": 0.5,
-                "type": "dotted"
-            }
-        },
-        {
-            "color": "#1C8ADD",
-            "datatype_name": "drawing",
-            "datatype_number": "0",
-            "editable": true,
-            "layer_name": "OutL",
-            "layer_number": "32",
-            "outline": {
-                "type": "solid",
-                "width": "2px"
-            },
-            "pattern": {
-                "opacity": 0.5,
-                "type": "horizontal_lines"
-            }
-        },
-        {
-            "color": "#E633C3",
-            "datatype_name": "drawing",
-            "datatype_number": "0",
-            "editable": true,
-            "layer_name": "BBox",
-            "layer_number": "33",
-            "outline": {
-                "type": "solid",
-                "width": "2px"
-            },
-            "pattern": {
-                "opacity": 0.5,
-                "type": "horizontal_lines"
-            }
-        },
-        {
-            "color": "#8DB00F",
-            "datatype_name": "drawing",
-            "datatype_number": "0",
-            "editable": true,
-            "layer_name": "Text",
-            "layer_number": "34",
-            "outline": {
-                "type": "solid",
-                "width": "2px"
-            },
-            "pattern": {
-                "opacity": 0.5,
-                "type": "vertical_lines"
-            }
-        },
-        {
-            "color": "#C36CBE",
-            "datatype_name": "drawing",
-            "datatype_number": "0",
-            "editable": false,
-            "layer_name": "Marker1",
-            "layer_number": "101",
-            "outline": {
-                "type": "solid",
-                "width": "2px"
-            },
-            "pattern": {
-                "opacity": 0.5,
-                "type": "dotted"
-            }
-        },
-        {
-            "color": "#B81570",
-            "datatype_name": "drawing",
-            "datatype_number": "0",
-            "editable": false,
-            "layer_name": "Marker2",
-            "layer_number": "102",
-            "outline": {
-                "type": "solid",
-                "width": "2px"
-            },
-            "pattern": {
-                "opacity": 0.5,
-                "type": "empty_fill"
-            }
-        },
-        {
-            "color": "#36F809",
-            "datatype_name": "drawing",
-            "datatype_number": "0",
-            "editable": false,
-            "layer_name": "Marker3",
-            "layer_number": "103",
-            "outline": {
-                "type": "solid",
-                "width": "2px"
-            },
-            "pattern": {
-                "opacity": 0.5,
-                "type": "diagonal_lines"
-            }
-        },
-        {
-            "color": "#5A6AA8",
-            "datatype_name": "drawing",
-            "datatype_number": "0",
-            "editable": false,
-            "layer_name": "Marker4",
-            "layer_number": "104",
-            "outline": {
-                "type": "solid",
-                "width": "2px"
-            },
-            "pattern": {
-                "opacity": 0.5,
-                "type": "rev_diagonal_lines"
-            }
-        },
-        {
-            "color": "#5BD5CF",
-            "datatype_name": "drawing",
-            "datatype_number": "0",
-            "editable": false,
-            "layer_name": "Marker5",
-            "layer_number": "105",
-            "outline": {
-                "type": "solid",
-                "width": "2px"
-            },
-            "pattern": {
-                "opacity": 0.5,
-                "type": "horizontal_lines"
-            }
-        },
-        {
-            "color": "#5D3875",
-            "datatype_name": "drawing",
-            "datatype_number": "0",
-            "editable": false,
-            "layer_name": "Marker6",
-            "layer_number": "106",
-            "outline": {
-                "type": "solid",
-                "width": "2px"
-            },
-            "pattern": {
-                "opacity": 0.5,
-                "type": "vertical_lines"
-            }
-        },
-        {
-            "color": "#5965A4",
-            "datatype_name": "drawing",
-            "datatype_number": "0",
-            "editable": false,
-            "layer_name": "Marker7",
-            "layer_number": "107",
-            "outline": {
-                "type": "solid",
-                "width": "2px"
-            },
-            "pattern": {
-                "opacity": 0.5,
-                "type": "rev_diagonal_lines"
-            }
-        },
-        {
-            "color": "#6B13F1",
-            "datatype_name": "drawing",
-            "datatype_number": "0",
-            "editable": false,
-            "layer_name": "Marker8",
-            "layer_number": "108",
-            "outline": {
-                "type": "solid",
-                "width": "2px"
-            },
-            "pattern": {
-                "opacity": 0.5,
-                "type": "dotted"
-            }
-        },
-        {
-            "color": "#B8561F",
-            "datatype_name": "drawing",
-            "datatype_number": "0",
-            "editable": false,
-            "layer_name": "Marker9",
-            "layer_number": "109",
-            "outline": {
-                "type": "solid",
-                "width": "2px"
-            },
-            "pattern": {
-                "opacity": 0.5,
-                "type": "rev_diagonal_lines"
-            }
-        },
-        {
-            "color": "#5C7AFD",
-            "datatype_name": "drawing",
-            "datatype_number": "0",
-            "editable": false,
-            "layer_name": "DRC",
-            "layer_number": "110",
-            "outline": {
-                "type": "solid",
-                "width": "2px"
-            },
-            "pattern": {
-                "opacity": 0.5,
-                "type": "horizontal_lines"
-            }
-        }
-    ]
+  "layermap_name": "Default",
+  "layers": [
+    {
+      "layer_number": "1",
+      "datatype_number": "0",
+      "layer_name": "NW",
+      "datatype_name": "drawing",
+      "color": "#71FAC5",
+      "pattern": { "type": "rev_diagonal_lines", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "2",
+      "datatype_number": "0",
+      "layer_name": "PW",
+      "datatype_name": "drawing",
+      "color": "#BC5114",
+      "pattern": { "type": "cross", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "3",
+      "datatype_number": "0",
+      "layer_name": "NP",
+      "datatype_name": "drawing",
+      "color": "#C2DAE7",
+      "pattern": { "type": "horizontal_lines", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "4",
+      "datatype_number": "0",
+      "layer_name": "PP",
+      "datatype_name": "drawing",
+      "color": "#371D9F",
+      "pattern": { "type": "horizontal_lines", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "5",
+      "datatype_number": "0",
+      "layer_name": "Diff",
+      "datatype_name": "drawing",
+      "color": "#BC8AD3",
+      "pattern": { "type": "empty_fill", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "6",
+      "datatype_number": "0",
+      "layer_name": "Poly",
+      "datatype_name": "drawing",
+      "color": "#B95EED",
+      "pattern": { "type": "dotted", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "7",
+      "datatype_number": "0",
+      "layer_name": "Cont",
+      "datatype_name": "drawing",
+      "color": "#074C41",
+      "pattern": { "type": "diagonal_lines", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "7",
+      "datatype_number": "4",
+      "layer_name": "Cont",
+      "datatype_name": "obstruction",
+      "color": "#25D590",
+      "pattern": { "type": "vertical_lines", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "8",
+      "datatype_number": "0",
+      "layer_name": "M1",
+      "datatype_name": "drawing",
+      "color": "#7EFEA7",
+      "pattern": { "type": "empty_fill", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "8",
+      "datatype_number": "3",
+      "layer_name": "M1",
+      "datatype_name": "pin",
+      "color": "#18F539",
+      "pattern": { "type": "rev_diagonal_lines", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "8",
+      "datatype_number": "4",
+      "layer_name": "M1",
+      "datatype_name": "obstruction",
+      "color": "#A41257",
+      "pattern": { "type": "vertical_lines", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "10",
+      "datatype_number": "0",
+      "layer_name": "M2",
+      "datatype_name": "drawing",
+      "color": "#08DB6E",
+      "pattern": { "type": "rev_diagonal_lines", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "10",
+      "datatype_number": "3",
+      "layer_name": "M2",
+      "datatype_name": "pin",
+      "color": "#5AFB44",
+      "pattern": { "type": "diagonal_lines", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "10",
+      "datatype_number": "4",
+      "layer_name": "M2",
+      "datatype_name": "obstruction",
+      "color": "#944A1E",
+      "pattern": { "type": "diagonal_lines", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "12",
+      "datatype_number": "0",
+      "layer_name": "M3",
+      "datatype_name": "drawing",
+      "color": "#FE5D19",
+      "pattern": { "type": "dotted", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "12",
+      "datatype_number": "3",
+      "layer_name": "M3",
+      "datatype_name": "pin",
+      "color": "#D2F74E",
+      "pattern": { "type": "empty_fill", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "12",
+      "datatype_number": "4",
+      "layer_name": "M3",
+      "datatype_name": "obstruction",
+      "color": "#573290",
+      "pattern": { "type": "horizontal_lines", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "9",
+      "datatype_number": "0",
+      "layer_name": "V1",
+      "datatype_name": "drawing",
+      "color": "#8F6502",
+      "pattern": { "type": "diagonal_lines", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "9",
+      "datatype_number": "4",
+      "layer_name": "V1",
+      "datatype_name": "obstruction",
+      "color": "#F5D3C0",
+      "pattern": { "type": "horizontal_lines", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "11",
+      "datatype_number": "0",
+      "layer_name": "V2",
+      "datatype_name": "drawing",
+      "color": "#33BF45",
+      "pattern": { "type": "rev_diagonal_lines", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "11",
+      "datatype_number": "4",
+      "layer_name": "V2",
+      "datatype_name": "obstruction",
+      "color": "#0B3AE7",
+      "pattern": { "type": "rev_diagonal_lines", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "32",
+      "datatype_number": "0",
+      "layer_name": "OutL",
+      "datatype_name": "drawing",
+      "color": "#E62CA0",
+      "pattern": { "type": "diagonal_lines", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "34",
+      "datatype_number": "0",
+      "layer_name": "Text",
+      "datatype_name": "drawing",
+      "color": "#D499FB",
+      "pattern": { "type": "diagonal_lines", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "101",
+      "datatype_number": "0",
+      "layer_name": "NW.W",
+      "datatype_name": "drc",
+      "color": "#B0F828",
+      "pattern": { "type": "rev_diagonal_lines", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "102",
+      "datatype_number": "0",
+      "layer_name": "NW.S",
+      "datatype_name": "drc",
+      "color": "#799CAB",
+      "pattern": { "type": "rev_diagonal_lines", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "103",
+      "datatype_number": "0",
+      "layer_name": "NW.A",
+      "datatype_name": "drc",
+      "color": "#83FA31",
+      "pattern": { "type": "vertical_lines", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "104",
+      "datatype_number": "0",
+      "layer_name": "PW.W",
+      "datatype_name": "drc",
+      "color": "#EFB50C",
+      "pattern": { "type": "diagonal_lines", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "105",
+      "datatype_number": "0",
+      "layer_name": "PW.S",
+      "datatype_name": "drc",
+      "color": "#1B7AF9",
+      "pattern": { "type": "diagonal_lines", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "106",
+      "datatype_number": "0",
+      "layer_name": "PW.A",
+      "datatype_name": "drc",
+      "color": "#B9B8EB",
+      "pattern": { "type": "cross", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "107",
+      "datatype_number": "0",
+      "layer_name": "NP.W",
+      "datatype_name": "drc",
+      "color": "#B1966C",
+      "pattern": { "type": "rev_diagonal_lines", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "108",
+      "datatype_number": "0",
+      "layer_name": "NP.S",
+      "datatype_name": "drc",
+      "color": "#B37F63",
+      "pattern": { "type": "diagonal_lines", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "109",
+      "datatype_number": "0",
+      "layer_name": "NP.A",
+      "datatype_name": "drc",
+      "color": "#01886C",
+      "pattern": { "type": "cross", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "110",
+      "datatype_number": "0",
+      "layer_name": "PP.W",
+      "datatype_name": "drc",
+      "color": "#E762BE",
+      "pattern": { "type": "vertical_lines", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "111",
+      "datatype_number": "0",
+      "layer_name": "PP.S",
+      "datatype_name": "drc",
+      "color": "#E749E6",
+      "pattern": { "type": "rev_diagonal_lines", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "112",
+      "datatype_number": "0",
+      "layer_name": "PP.A",
+      "datatype_name": "drc",
+      "color": "#58B8EE",
+      "pattern": { "type": "vertical_lines", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "113",
+      "datatype_number": "0",
+      "layer_name": "Diff.W",
+      "datatype_name": "drc",
+      "color": "#5374E2",
+      "pattern": { "type": "rev_diagonal_lines", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "114",
+      "datatype_number": "0",
+      "layer_name": "Diff.S",
+      "datatype_name": "drc",
+      "color": "#D49525",
+      "pattern": { "type": "diagonal_lines", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "115",
+      "datatype_number": "0",
+      "layer_name": "Diff.A",
+      "datatype_name": "drc",
+      "color": "#1BC3F7",
+      "pattern": { "type": "empty_fill", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "116",
+      "datatype_number": "0",
+      "layer_name": "Poly.W",
+      "datatype_name": "drc",
+      "color": "#212E58",
+      "pattern": { "type": "empty_fill", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "117",
+      "datatype_number": "0",
+      "layer_name": "Poly.S",
+      "datatype_name": "drc",
+      "color": "#565CCD",
+      "pattern": { "type": "horizontal_lines", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "118",
+      "datatype_number": "0",
+      "layer_name": "Poly.Angle",
+      "datatype_name": "drc",
+      "color": "#ECB7D7",
+      "pattern": { "type": "empty_fill", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "119",
+      "datatype_number": "0",
+      "layer_name": "Poly.Ext",
+      "datatype_name": "drc",
+      "color": "#208014",
+      "pattern": { "type": "cross", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "120",
+      "datatype_number": "0",
+      "layer_name": "Cont.S",
+      "datatype_name": "drc",
+      "color": "#81DAAF",
+      "pattern": { "type": "vertical_lines", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "121",
+      "datatype_number": "0",
+      "layer_name": "Cont.size",
+      "datatype_name": "drc",
+      "color": "#64A68B",
+      "pattern": { "type": "empty_fill", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "122",
+      "datatype_number": "0",
+      "layer_name": "M1.W",
+      "datatype_name": "drc",
+      "color": "#E56A7C",
+      "pattern": { "type": "cross", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "123",
+      "datatype_number": "0",
+      "layer_name": "M1.S",
+      "datatype_name": "drc",
+      "color": "#FD6CA6",
+      "pattern": { "type": "dotted", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "124",
+      "datatype_number": "0",
+      "layer_name": "M1.A",
+      "datatype_name": "drc",
+      "color": "#BC938F",
+      "pattern": { "type": "cross", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "125",
+      "datatype_number": "0",
+      "layer_name": "V1.S",
+      "datatype_name": "drc",
+      "color": "#93B4A9",
+      "pattern": { "type": "dotted", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "126",
+      "datatype_number": "0",
+      "layer_name": "V1.size",
+      "datatype_name": "drc",
+      "color": "#19E7DC",
+      "pattern": { "type": "dotted", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "127",
+      "datatype_number": "0",
+      "layer_name": "M2.W",
+      "datatype_name": "drc",
+      "color": "#CC36A7",
+      "pattern": { "type": "empty_fill", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "128",
+      "datatype_number": "0",
+      "layer_name": "M2.S",
+      "datatype_name": "drc",
+      "color": "#958450",
+      "pattern": { "type": "empty_fill", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "129",
+      "datatype_number": "0",
+      "layer_name": "M2.A",
+      "datatype_name": "drc",
+      "color": "#7357D0",
+      "pattern": { "type": "diagonal_lines", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "130",
+      "datatype_number": "0",
+      "layer_name": "V2.S",
+      "datatype_name": "drc",
+      "color": "#A99768",
+      "pattern": { "type": "empty_fill", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "131",
+      "datatype_number": "0",
+      "layer_name": "V2.size",
+      "datatype_name": "drc",
+      "color": "#C3E0F2",
+      "pattern": { "type": "vertical_lines", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "132",
+      "datatype_number": "0",
+      "layer_name": "M3.W",
+      "datatype_name": "drc",
+      "color": "#61BE6C",
+      "pattern": { "type": "rev_diagonal_lines", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "133",
+      "datatype_number": "0",
+      "layer_name": "M3.S",
+      "datatype_name": "drc",
+      "color": "#EFB428",
+      "pattern": { "type": "diagonal_lines", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "134",
+      "datatype_number": "0",
+      "layer_name": "M3.A",
+      "datatype_name": "drc",
+      "color": "#AED012",
+      "pattern": { "type": "vertical_lines", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "135",
+      "datatype_number": "0",
+      "layer_name": "Diff.Cont.Enc",
+      "datatype_name": "drc",
+      "color": "#DDA8C4",
+      "pattern": { "type": "horizontal_lines", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "136",
+      "datatype_number": "0",
+      "layer_name": "Poly.Cont.Enc",
+      "datatype_name": "drc",
+      "color": "#1D6BBB",
+      "pattern": { "type": "diagonal_lines", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "137",
+      "datatype_number": "0",
+      "layer_name": "M1.Cont.Enc",
+      "datatype_name": "drc",
+      "color": "#1ABEB8",
+      "pattern": { "type": "horizontal_lines", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "138",
+      "datatype_number": "0",
+      "layer_name": "M1.V1.Enc",
+      "datatype_name": "drc",
+      "color": "#D4F8A3",
+      "pattern": { "type": "dotted", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "139",
+      "datatype_number": "0",
+      "layer_name": "M2.V1.Enc",
+      "datatype_name": "drc",
+      "color": "#FCA252",
+      "pattern": { "type": "diagonal_lines", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "140",
+      "datatype_number": "0",
+      "layer_name": "M2.V2.Enc",
+      "datatype_name": "drc",
+      "color": "#6C277B",
+      "pattern": { "type": "rev_diagonal_lines", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "141",
+      "datatype_number": "0",
+      "layer_name": "M3.V2.Enc",
+      "datatype_name": "drc",
+      "color": "#F3FFE3",
+      "pattern": { "type": "horizontal_lines", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "142",
+      "datatype_number": "0",
+      "layer_name": "NW.NDiff.S",
+      "datatype_name": "drc",
+      "color": "#D2E098",
+      "pattern": { "type": "diagonal_lines", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "143",
+      "datatype_number": "0",
+      "layer_name": "NW.PDiff.S",
+      "datatype_name": "drc",
+      "color": "#5F3C2A",
+      "pattern": { "type": "cross", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "144",
+      "datatype_number": "0",
+      "layer_name": "PW.PDiff.S",
+      "datatype_name": "drc",
+      "color": "#D5F529",
+      "pattern": { "type": "vertical_lines", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "145",
+      "datatype_number": "0",
+      "layer_name": "PW.NDiff.S",
+      "datatype_name": "drc",
+      "color": "#4B3863",
+      "pattern": { "type": "empty_fill", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "146",
+      "datatype_number": "0",
+      "layer_name": "NP.PDiff.S",
+      "datatype_name": "drc",
+      "color": "#F30FBA",
+      "pattern": { "type": "rev_diagonal_lines", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "147",
+      "datatype_number": "0",
+      "layer_name": "PP.NDiff.S",
+      "datatype_name": "drc",
+      "color": "#5918D5",
+      "pattern": { "type": "cross", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "148",
+      "datatype_number": "0",
+      "layer_name": "Cont.Poly.S",
+      "datatype_name": "drc",
+      "color": "#9AA246",
+      "pattern": { "type": "cross", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    },
+    {
+      "layer_number": "149",
+      "datatype_number": "0",
+      "layer_name": "Cont.Diff.S",
+      "datatype_name": "drc",
+      "color": "#3CBFFE",
+      "pattern": { "type": "vertical_lines", "opacity": 0.5 },
+      "outline": { "type": "solid", "width": "2px" },
+      "editable": true
+    }
+  ]
 }
