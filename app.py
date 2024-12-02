@@ -115,27 +115,27 @@ elif system == "Darwin":  # macOS
 else:  # Linux and other systems
         BASE_DIR = os.path.join(os.path.expanduser("~"), "Documents")
 
+
 @app.route('/convert-and-save-gds', methods=['POST'])
 def convert_and_save_gds():
-    
         data = request.json
         json_content = data.get('json_content', '')
         project_name = data.get('project_name', '')
-        directory_name = data.get('directory_path', '')  # This is just the directory name
+          # This is just the directory name
 
-        if not json_content or not project_name or not directory_name:
+        if not json_content or not project_name :
             return jsonify({"message": "JSON content, project name, or directory path is missing"}), 400
 
         # Build the full directory path using BASE_DIR and directory_name
-        full_directory_path = os.path.join(BASE_DIR, directory_name)
-        os.makedirs(full_directory_path, exist_ok=True)  # Create the directory if it doesn't exist
+        #full_directory_path = os.path.join(BASE_DIR, directory_name)
+        #os.makedirs(BASE_DIR, exist_ok=True)  # Create the directory if it doesn't exist
 
         # Define the path for the GDS file
-        gds_filename = os.path.join(full_directory_path, f"{project_name}.gds")
+        gds_filename = os.path.join(BASE_DIR, f"{project_name}.gds")
 
         try:
             # Save the JSON content temporarily to a file
-            temp_json_path = os.path.join(full_directory_path, f"{project_name}.json")
+            temp_json_path = os.path.join(BASE_DIR, f"{project_name}.json")
             with open(temp_json_path, 'w') as temp_json_file:
                 temp_json_file.write(json_content)
 
@@ -147,7 +147,6 @@ def convert_and_save_gds():
 
         except Exception as e:
             return jsonify({"message": f"Conversion failed: {str(e)}"}), 500
-
 
 @app.route('/convert-gds-to-json', methods=['POST'])
 def convert_gds_to_json_route():
