@@ -17,7 +17,7 @@ users_collection = db['users']
 drc_bp = Blueprint('drc', __name__)
 
 # Maximum allowed size for incoming POST data (4 KB)
-MAX_JSON_SIZE = 7 * 1024  # 4 KB
+MAX_JSON_SIZE = 4 * 1024  # 4 KB
 
 @drc_bp.route('/generate_gds', methods=['POST'])
 @jwt_required()
@@ -25,8 +25,8 @@ def generate_gds():
     try:
         # Check if the incoming JSON data size is greater than the allowed size
         if request.content_length > MAX_JSON_SIZE:
-            print("limit: ", request.content_length)
-            return jsonify({"error": "JSON data exceeds the 7 KB size limit"}), 400
+            print("data size: ", request.content_length)
+            return jsonify({"error": "JSON data exceeds the 4 KB size limit"}), 400
 
         print("limit: ", request.content_length)
         # Parse the incoming JSON data
