@@ -7,6 +7,7 @@ import subprocess
 import tempfile
 from jsonToGds import convert_json_to_gds
 import os
+from logConfig import logger
 
 # Initialize MongoDB client
 mongo_uri = f"mongodb+srv://innoveotech:{os.getenv('DB_PASSWORD')}@azeem.af86m.mongodb.net/chipdesign1?retryWrites=true&w=majority"
@@ -25,7 +26,7 @@ def generate_gds():
     try:
         # Check if the incoming JSON data size is greater than the allowed size
         if request.content_length > MAX_JSON_SIZE:
-            print("data size: ", request.content_length)
+            logger.warning(f"Data size: {request.content_length} exceeds the limit")
             return jsonify({"error": "JSON data exceeds the 4 KB size limit"}), 400
 
         print("limit: ", request.content_length)
@@ -61,6 +62,7 @@ def generate_gds():
         run_sh_path = os.path.join(app_base_dir, 'verifire.command_line_14', 'test_runner', 'sahil', 'run.sh')
         rve_output_path = os.path.join(app_base_dir, 'verifire.command_line_14', 'test_runner', 'sahil', f'{username}_cells.rve')  # RVE file path
 
+        logger.debug(f"File paths set: Test file: {test_file_path}, Output GDS: {output_gds_path}")
         # Read and process the test_0.json file
         with open(test_file_path, 'r') as test_file:
             test_data = json.load(test_file)
@@ -75,6 +77,7 @@ def generate_gds():
         # Save the updated test_0.json
         with open(test_file_path, 'w') as test_file:
             json.dump(test_data, test_file, indent=4)
+        logger.info("Updated and saved DRC_deck.json with user data")
         
         # Save JSON data to a temporary file
         temp_json = tempfile.NamedTemporaryFile(delete=False, mode='w', encoding='utf-8')
@@ -83,16 +86,18 @@ def generate_gds():
 
         # Convert JSON to GDS
         convert_json_to_gds(temp_json.name, output_gds_path)
-        print("GDS created:  ", output_gds_path)
+        logger.info(f"GDS created successfully: {output_gds_path}")
 
         # Run the shell script (run.sh)
-        print("Now Rust program starts")
+        
         result = subprocess.run(
             ['bash', run_sh_path], 
             stdout=subprocess.PIPE, 
             stderr=subprocess.PIPE, 
             cwd=os.path.dirname(run_sh_path) 
         )
+        logger.info(f"Shell script executed: {result.stdout.decode()}")
+        logger.error(f"Shell script errors: {result.stderr.decode()}")
 
         # Now, run Highlight_DRC.py with the username
         highlight_drc_script_path = os.path.join(app_base_dir, 'verifire.command_line_14', 'test_runner', 'sahil', 'Highlight_DRC.py')
@@ -102,8 +107,8 @@ def generate_gds():
             stderr=subprocess.PIPE,
             cwd=os.path.dirname(highlight_drc_script_path)
         )
-        print("Highlight_DRC.py stdout:", result.stdout.decode())
-        print("Highlight_DRC.py stderr:", result.stderr.decode())
+        logger.info(f"Shell script executed: {result.stdout.decode()}")
+        logger.error(f"Shell script errors: {result.stderr.decode()}") 
 
         
         gds_output_path = os.path.join(app_base_dir, 'verifire.command_line_14', 'test_runner', 'sahil', f"{username}_DRC_GDS.gds")
