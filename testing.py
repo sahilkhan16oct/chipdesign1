@@ -53,7 +53,7 @@ def register_users_one_by_one(file_path):
             "username": email,
             "email": email,
             "password": hashed_password,
-            "counter": 25
+            "counter": 24
         }
         users_collection.insert_one(user_entry)
         print(f"Inserted user: {email}")

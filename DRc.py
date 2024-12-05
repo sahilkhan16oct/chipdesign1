@@ -116,7 +116,7 @@ def generate_gds():
             # Cleanup the files after sending
             os.remove(gds_output_path)
             os.remove(output_gds_path)
-            os.remove(rve_output_path)
+            # os.remove(rve_output_path)
             os.remove(temp_json.name)
 
             return response
@@ -125,3 +125,46 @@ def generate_gds():
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+
+
+
+@drc_bp.route('/generate_pdf', methods=['GET'])
+@jwt_required()
+def generate_pdf():
+    # Retrieve the user's identity (username) from the JWT token
+    username = get_jwt_identity()
+
+    # Find the user in the database by their username
+    user = users_collection.find_one({"username": username})
+    if not user:
+        return jsonify({"error": "User not found"}), 404
+    
+    app_base_dir = os.path.abspath(os.path.dirname(__file__))
+    pdf_script_path = os.path.join(app_base_dir, 'verifire.command_line_14', 'test_runner', 'sahil', 'rveToPdf.py')
+    rve_file_path = os.path.join(app_base_dir, 'verifire.command_line_14', 'test_runner', 'sahil', f'{username}_cells.rve')
+
+    if os.path.exists(rve_file_path):
+        result = subprocess.run(
+                ['python3', pdf_script_path, username],
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+                cwd=os.path.dirname(pdf_script_path)
+    )
+    else:
+         return jsonify({"error":"File does not exist , First Run DRC"})
+
+    pdf_output_path = os.path.join(app_base_dir, 'verifire.command_line_14', 'test_runner', 'sahil', f"{username}_DRC_violations")
+    if os.path.exists(pdf_output_path):
+            # Send the generated GDS file to the user
+            response = send_file(pdf_output_path, as_attachment=True)
+            
+            # Cleanup the files after sending
+            os.remove(pdf_output_path)
+            
+            return response
+    else:
+            return jsonify({"error": "PDF generation failed"}), 500
+
+
+        
+    
