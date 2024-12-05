@@ -153,7 +153,7 @@ def generate_pdf():
     else:
          return jsonify({"error":"File does not exist , First Run DRC"})
 
-    pdf_output_path = os.path.join(app_base_dir, 'verifire.command_line_14', 'test_runner', 'sahil', f"{username}_DRC_violations")
+    pdf_output_path = os.path.join(app_base_dir, 'verifire.command_line_14', 'test_runner', 'sahil', f"{username}_DRC_violations.pdf")
     if os.path.exists(pdf_output_path):
             # Send the generated GDS file to the user
             response = send_file(pdf_output_path, as_attachment=True)

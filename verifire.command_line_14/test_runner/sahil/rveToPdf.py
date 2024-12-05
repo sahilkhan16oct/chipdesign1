@@ -124,7 +124,7 @@ def read_file(rve_file):
 			line += p_cnt+1	
 			violation_cnt -= 1	
 			
-	pdf.output(f"{username}_DRC_violations")
+	pdf.output(f"{username}_DRC_violations.pdf")
 
 #--------------------------------------------------------
 	
