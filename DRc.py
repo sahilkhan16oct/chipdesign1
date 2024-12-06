@@ -17,18 +17,14 @@ users_collection = db['users']
 
 drc_bp = Blueprint('drc', __name__)
 
-# Maximum allowed size for incoming POST data (4 KB)
-MAX_JSON_SIZE = 4 * 1024  # 4 KB
+
+MAX_GDS_SIZE = 4 * 1024  # 4 KB
 
 @drc_bp.route('/generate_gds', methods=['POST'])
 @jwt_required()
 def generate_gds():
     try:
-        # Check if the incoming JSON data size is greater than the allowed size
-        if request.content_length > MAX_JSON_SIZE:
-            return jsonify({"error": "JSON data exceeds the 4 KB size limit"}), 400
-
-        print("limit: ", request.content_length)
+        
         # Parse the incoming JSON data
         data = request.json
         if not data:
@@ -44,7 +40,7 @@ def generate_gds():
         
         # Check if the user has any remaining counter
         if user['counter'] <= 0:
-            return jsonify({"error": "Counter is at 0. Cannot generate GDS."}), 400
+            return jsonify({"error": "DRC "}), 400
 
         # Decrease the counter by 1
         users_collection.update_one(
@@ -86,9 +82,16 @@ def generate_gds():
         # Convert JSON to GDS
         convert_json_to_gds(temp_json.name, output_gds_path)
         
-
-        # Run the shell script (run.sh)
+        if os.path.exists(output_gds_path):
+            gds_file_size = os.path.getsize(output_gds_path)  # File size in bytes
+            if gds_file_size > MAX_GDS_SIZE:
+                # Cleanup the temporary files
+                os.remove(output_gds_path)
+                os.remove(rve_output_path)
+                return jsonify({"error": "Generated GDS file exceeds the 4 KB size limit"}), 400
         
+        
+        # Run the shell script (run.sh)
         result = subprocess.run(
             ['bash', run_sh_path], 
             stdout=subprocess.PIPE, 
@@ -151,7 +154,7 @@ def generate_pdf():
                 cwd=os.path.dirname(pdf_script_path)
     )
     else:
-         return jsonify({"error":"File does not exist , First Run DRC"})
+         return jsonify({"error":"DRC Data Not Found , First Run DRC"})
 
     pdf_output_path = os.path.join(app_base_dir, 'verifire.command_line_14', 'test_runner', 'sahil', f"{username}_DRC_violations.pdf")
     if os.path.exists(pdf_output_path):
