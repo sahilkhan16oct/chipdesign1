@@ -148,40 +148,53 @@ def convert_and_save_gds():
         except Exception as e:
             return jsonify({"message": f"Conversion failed: {str(e)}"}), 500
 
+import os
+import tempfile
+from flask import request, jsonify
+
 @app.route('/convert-gds-to-json', methods=['POST'])
 def convert_gds_to_json_route():
-        try:
-            # Check if a file was uploaded
-            if 'file' not in request.files:
-                return jsonify({"message": "No file uploaded"}), 400
+    try:
+        # Check if a file was uploaded
+        if 'file' not in request.files:
+            return jsonify({"message": "No file uploaded"}), 400
 
-            # Get the uploaded GDS file
-            file = request.files['file']
-
-            # Ensure the file has a valid GDS extension
-            if not file.filename.endswith('.gds'):
-                return jsonify({"message": "Invalid file type, expected a GDS file"}), 400
-
-            # Save the GDS file to a temporary location
-            with tempfile.NamedTemporaryFile(delete=False, suffix=".gds") as temp_gds_file:
-                temp_gds_file.write(file.read())
-                temp_gds_file_path = temp_gds_file.name
-
-            try:
-                # Convert the GDS file to JSON using the file path
-                json_data = convert_gds_to_json(temp_gds_file_path)  # Pass the temp file path to the function
-
-                # Return the JSON data as a response
-                return jsonify({'json_data': json_data})
-
-            finally:
-                # Clean up: delete the temporary GDS file
-                if os.path.exists(temp_gds_file_path):
-                    os.remove(temp_gds_file_path)
-
-        except Exception as e:
-            return jsonify({'message': str(e)}), 500
+        # Get the uploaded GDS file
+        file = request.files['file']
         
+        # Ensure the file has a valid GDS extension
+        if not file.filename.endswith('.gds'):
+            return jsonify({"message": "Invalid file type, expected a GDS file"}), 400
+        
+        # Try reading the file to check if it's valid
+        try:
+            file_content = file.read()
+        except Exception as e:
+            return jsonify({"message": f"Error reading input file: {str(e)}"}), 400
+
+        # Check the file size (4 KB limit)
+        if len(file_content) > 4 * 1024:  # 4 KB = 4 * 1024 bytes
+            return jsonify({"message": "File size exceeds the 4 KB limit"}), 400
+
+        # Save the GDS file to a temporary location
+        with tempfile.NamedTemporaryFile(delete=False, suffix=".gds") as temp_gds_file:
+            temp_gds_file.write(file_content)
+            temp_gds_file_path = temp_gds_file.name
+
+        try:
+            # Convert the GDS file to JSON using the file path
+            json_data = convert_gds_to_json(temp_gds_file_path)  # Pass the temp file path to the function
+
+            # Return the JSON data as a response
+            return jsonify({'json_data': json_data})
+
+        finally:
+            # Clean up: delete the temporary GDS file
+            if os.path.exists(temp_gds_file_path):
+                os.remove(temp_gds_file_path)
+
+    except Exception as e:
+        return jsonify({'message': str(e)}), 500
 
 
 
