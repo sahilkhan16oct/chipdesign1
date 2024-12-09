@@ -1,7 +1,7 @@
 {
-    "input": "slkn12131_cells.gds",
-    "output": "slkn12131_cells.rve",
-    "cell": "sahilkh3",
+   "input": "aaa.gds",
+    "output": "aaa.rve",
+    "cell": "aaa",
     "format": "rve",
     "tasks": [
         {
@@ -17,12 +17,6 @@
         },
         {
             "viewport_0": {
-                "base": {
-                    "layer_number": 1,
-                    "datatype_number": 0
-                }
-            },
-            "viewport_1": {
                 "base": {
                     "layer_number": 1,
                     "datatype_number": 0
@@ -55,12 +49,6 @@
         },
         {
             "viewport_0": {
-                "base": {
-                    "layer_number": 2,
-                    "datatype_number": 0
-                }
-            },
-            "viewport_1": {
                 "base": {
                     "layer_number": 2,
                     "datatype_number": 0
@@ -93,12 +81,6 @@
         },
         {
             "viewport_0": {
-                "base": {
-                    "layer_number": 3,
-                    "datatype_number": 0
-                }
-            },
-            "viewport_1": {
                 "base": {
                     "layer_number": 3,
                     "datatype_number": 0
@@ -131,12 +113,6 @@
         },
         {
             "viewport_0": {
-                "base": {
-                    "layer_number": 4,
-                    "datatype_number": 0
-                }
-            },
-            "viewport_1": {
                 "base": {
                     "layer_number": 4,
                     "datatype_number": 0
@@ -174,12 +150,6 @@
                     "datatype_number": 0
                 }
             },
-            "viewport_1": {
-                "base": {
-                    "layer_number": 5,
-                    "datatype_number": 0
-                }
-            },
             "spacing": 0.28,
             "direction": "dxy",
             "rule_type": "spacing"
@@ -207,12 +177,6 @@
         },
         {
             "viewport_0": {
-                "base": {
-                    "layer_number": 6,
-                    "datatype_number": 0
-                }
-            },
-            "viewport_1": {
                 "base": {
                     "layer_number": 6,
                     "datatype_number": 0
@@ -255,12 +219,6 @@
                     "datatype_number": 0
                 }
             },
-            "viewport_1": {
-                "base": {
-                    "layer_number": 7,
-                    "datatype_number": 0
-                }
-            },
             "spacing": 0.22,
             "direction": "dxy",
             "rule_type": "spacing"
@@ -294,12 +252,6 @@
                     "datatype_number": 0
                 }
             },
-            "viewport_1": {
-                "base": {
-                    "layer_number": 8,
-                    "datatype_number": 0
-                }
-            },
             "spacing": 0.26,
             "direction": "dxy",
             "rule_type": "spacing"
@@ -316,12 +268,6 @@
         },
         {
             "viewport_0": {
-                "base": {
-                    "layer_number": 9,
-                    "datatype_number": 0
-                }
-            },
-            "viewport_1": {
                 "base": {
                     "layer_number": 9,
                     "datatype_number": 0
@@ -360,12 +306,6 @@
                     "datatype_number": 0
                 }
             },
-            "viewport_1": {
-                "base": {
-                    "layer_number": 10,
-                    "datatype_number": 0
-                }
-            },
             "spacing": 0.28,
             "direction": "dxy",
             "rule_type": "spacing"
@@ -382,12 +322,6 @@
         },
         {
             "viewport_0": {
-                "base": {
-                    "layer_number": 11,
-                    "datatype_number": 0
-                }
-            },
-            "viewport_1": {
                 "base": {
                     "layer_number": 11,
                     "datatype_number": 0
@@ -421,12 +355,6 @@
         },
         {
             "viewport_0": {
-                "base": {
-                    "layer_number": 12,
-                    "datatype_number": 0
-                }
-            },
-            "viewport_1": {
                 "base": {
                     "layer_number": 12,
                     "datatype_number": 0
