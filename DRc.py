@@ -154,7 +154,7 @@ def generate_pdf():
                 cwd=os.path.dirname(pdf_script_path)
     )
     else:
-         return jsonify({"error":"DRC Data Not Found , First Run DRC"})
+         return jsonify({"error":"DRC Data Not Found , First Run DRC"}),400
 
     pdf_output_path = os.path.join(app_base_dir, 'verifire.command_line_14', 'test_runner', 'sahil', f"{username}_DRC_violations.pdf")
     if os.path.exists(pdf_output_path):
