@@ -10,6 +10,7 @@ import smtplib
 from email.mime.text import MIMEText
 from functools import wraps
 from flask_jwt_extended import create_access_token, jwt_required , get_jwt
+import shutil
 
 
 load_dotenv()
@@ -114,11 +115,6 @@ def reset_password():
     else:
         return jsonify({"message": "No OTP found for this email", "verified": False}), 400
 
-import os
-import shutil
-from flask import jsonify, request
-from werkzeug.security import generate_password_hash
-from datetime import datetime, timedelta
 
 # Assuming the layermap.json file is located in the root directory
 LAYERS_DIR = "layermap"
@@ -269,9 +265,52 @@ def generate_layermap():
     return jsonify({"message": "Layermap generated successfully"}), 201
         
 
-@auth_bp.route('/logout', methods=['POST'])
-def logout():
-    session.pop('user', None)
-    return jsonify({"message": "Logged out", "authenticated": False})
+
+
+
+
+@auth_bp.route('/redirect', methods=['POST'])
+def auth_user():
+    data = request.get_json()
+    email = data.get('email')
+
+    if not email:
+        return jsonify({"error": "Email is required"}), 400
+
+    # Check if the user already exists in the database
+    user = users_collection.find_one({"username": email})
+
+    if user:
+        # If user exists, return a JWT token
+        username = user['username']
+        access_token = create_access_token(identity=username)
+        return jsonify(access_token=access_token, message="Login successful"), 200
+    
+    # If user does not exist, register them
+    username = email  # Use email as the username
+    new_user = {
+        "username": email,
+        "email": email,
+        "password": None,  # No password initially
+        "counter": 24
+    }
+    users_collection.insert_one(new_user)
+
+    # Create a separate layermap file for the user
+    new_layermap_file = f"{LAYERS_DIR}/{username}_layermap.json"
+    shutil.copyfile(BASE_LAYERS_FILE, new_layermap_file)
+
+    # Insert the layermap entry into the `layermap` collection
+    layermap_collection.insert_one({
+        "username": username,
+        "layermap_url": new_layermap_file,
+    })
+
+    # Generate a JWT token for the new user
+    access_token = create_access_token(identity=username)
+    return jsonify(access_token=access_token, message="Registration successful"), 201
+
+
+
 
 
