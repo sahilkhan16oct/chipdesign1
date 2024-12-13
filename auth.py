@@ -287,8 +287,9 @@ def auth_user():
         return jsonify(access_token=access_token, message="Login successful"), 200
     
     # If user does not exist, register them
+    username = email  # Assign email to username explicitly for new users
     new_user = {
-        "username": email,
+        "username": username,
         "email": email,
         "password": None,  # No password initially
         "counter": 24
@@ -297,7 +298,10 @@ def auth_user():
 
     # Create a separate layermap file for the user
     new_layermap_file = f"{LAYERS_DIR}/{username}_layermap.json"
-    shutil.copyfile(BASE_LAYERS_FILE, new_layermap_file)
+    try:
+        shutil.copyfile(BASE_LAYERS_FILE, new_layermap_file)
+    except FileNotFoundError as e:
+        return jsonify({"error": f"Base layermap file not found: {e}"}), 500
 
     # Insert the layermap entry into the `layermap` collection
     layermap_collection.insert_one({
