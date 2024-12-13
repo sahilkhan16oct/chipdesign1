@@ -9,7 +9,7 @@ import random
 import smtplib
 from email.mime.text import MIMEText
 from functools import wraps
-from flask_jwt_extended import create_access_token, jwt_required , get_jwt
+from flask_jwt_extended import create_access_token, jwt_required , get_jwt , decode_token
 import shutil
 
 
@@ -287,7 +287,6 @@ def auth_user():
         return jsonify(access_token=access_token, message="Login successful"), 200
     
     # If user does not exist, register them
-    username = email  # Use email as the username
     new_user = {
         "username": email,
         "email": email,
@@ -311,6 +310,27 @@ def auth_user():
     return jsonify(access_token=access_token, message="Registration successful"), 201
 
 
+
+@auth_bp.route('/verify-token', methods=['GET'])
+def verify_token():
+    token = request.headers.get('Authorization').replace('Bearer ', '')
+
+    if not token:
+        return jsonify({"error": "Token is required"}), 400
+
+    try:
+        decoded_token = decode_token(token)
+        identity = decoded_token.get('sub')
+
+        # Validate user in the database
+        user = users_collection.find_one({"username": identity})
+        if not user:
+            return jsonify({"error": "Invalid token or user does not exist"}), 401
+
+        return jsonify({"message": "Token is valid", "username": identity}), 200
+
+    except Exception as e:
+        return jsonify({"error": "Invalid or expired token", "details": str(e)}), 401
 
 
 

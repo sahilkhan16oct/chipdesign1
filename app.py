@@ -1,10 +1,9 @@
-from flask import Flask, jsonify, request, session , send_file 
-from flask_cors import CORS  # Import CORS from flask_cors
+from flask import Flask, jsonify, request, send_file 
+from flask_cors import CORS
 import json
 import os
 from jsonToGds import convert_json_to_gds 
 from gdsToJson import convert_gds_to_json
-import subprocess
 import platform
 from io import BytesIO
 import tempfile
@@ -12,7 +11,8 @@ from auth import auth_bp
 from layer_routes import layer_bp
 from DRc import drc_bp
 from flask_jwt_extended import JWTManager
-from time import sleep
+from datetime import timedelta
+
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for your frontend origin
@@ -20,8 +20,9 @@ CORS(app)  # Enable CORS for your frontend origin
 system = platform.system()
 
 app.secret_key = 'your_secret_key'
-app.config["JWT_SECRET_KEY"] = "your_jwt_secret_key"  # Configure JWT secret key
-jwt = JWTManager(app)  # Initialize JWTManager
+app.config["JWT_SECRET_KEY"] = "your_jwt_secret_key" 
+app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(days=1)
+jwt = JWTManager(app)  
 
 @app.route('/', methods=['GET'])
 def home():
