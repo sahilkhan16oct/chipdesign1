@@ -1,8 +1,10 @@
 import os
 import json
 from dotenv import load_dotenv
-from flask import Blueprint, jsonify, request
+from flask import Blueprint, jsonify, request , send_file
 from flask_jwt_extended import jwt_required, get_jwt_identity
+import zipfile
+from io import BytesIO
 from subsDecorator import subscription_required  # Assuming your subscription decorator is in subsDecorator.py
 from pymongo import MongoClient  # Ensure you have this imported if using MongoDB
 
@@ -111,6 +113,37 @@ def delete_user_layer():
         return jsonify({"message": "Layer deleted successfully."})
     else:
         return jsonify({"message": "Layer not found."}), 404
+    
+@layer_bp.route("/download-all", methods=["GET"])
+@jwt_required()
+def download_all_files():
+
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))  
+    SAMPLE_DIR = os.path.join(BASE_DIR, "sample")
+
+    # Check if the directory exists
+    if not os.path.exists(SAMPLE_DIR):
+        return jsonify({"message": "Files directory does not exist"}), 404
+
+    memory_file = BytesIO()
+
+    # Add files to a ZIP file
+    with zipfile.ZipFile(memory_file, "w", zipfile.ZIP_DEFLATED) as zf:
+        for root, _, files in os.walk(SAMPLE_DIR):
+            for file in files:
+                file_path = os.path.join(root, file)
+                zf.write(file_path, arcname=file)  # Add to ZIP
+
+    memory_file.seek(0)
+
+    # Send the ZIP file
+    return send_file(
+        memory_file,
+        mimetype="application/zip",
+        as_attachment=True,
+        download_name="sample_files.zip",
+    )
+
 
 @layer_bp.route('/prelimlef', methods=['GET'])
 @jwt_required()
