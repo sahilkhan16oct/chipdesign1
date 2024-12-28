@@ -272,7 +272,7 @@ def generate_layermap():
 @auth_bp.route('/redirect', methods=['POST'])
 def auth_user():
     data = request.get_json()
-    email = data.get('email')
+    email = data.get('can_id')
 
     if not email:
         return jsonify({"error": "Email is required"}), 400
