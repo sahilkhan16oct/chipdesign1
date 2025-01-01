@@ -173,8 +173,8 @@ def convert_gds_to_json_route():
         except Exception as e:
             return jsonify({"message": f"Error reading input file: {str(e)}"}), 400
 
-        # Check the file size (4 KB limit)
-        if len(file_content) > 4 * 1024:  # 4 KB = 4 * 1024 bytes
+        # Check the file size (6 KB limit)
+        if len(file_content) > 6 * 1024:  # 6 KB = 6 * 1024 bytes
             return jsonify({"message": "File size exceeds the 4 KB limit"}), 400
 
         # Save the GDS file to a temporary location
