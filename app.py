@@ -175,7 +175,7 @@ def convert_gds_to_json_route():
 
         # Check the file size (6 KB limit)
         if len(file_content) > 6 * 1024:  # 6 KB = 6 * 1024 bytes
-            return jsonify({"message": "File size exceeds the 4 KB limit"}), 400
+            return jsonify({"message": "File size exceeds the 6 KB limit"}), 400
 
         # Save the GDS file to a temporary location
         with tempfile.NamedTemporaryFile(delete=False, suffix=".gds") as temp_gds_file:
